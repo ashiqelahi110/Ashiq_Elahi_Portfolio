@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You – Message Sent</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background-color: #f7f9fc;
+      color: #1e293b;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: 'Segoe UI', sans-serif;
+      flex-direction: column;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 36px;
+      color: #0ea5e9;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 18px;
+      color: #64748b;
+    }
+
+    a.btn {
+      margin-top: 30px;
+      background: #0ea5e9;
+      color: #fff;
+      padding: 12px 24px;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    a.btn:hover {
+      background: #0284c7;
+    }
+
+    /* Dark mode compatibility */
+    body.dark {
+      background-color: #0f172a;
+      color: #f1f5f9;
+    }
+
+    body.dark h1 {
+      color: #38bdf8;
+    }
+
+    body.dark p {
+      color: #cbd5e1;
+    }
+
+    body.dark a.btn {
+      background: #38bdf8;
+      color: #0f172a;
+    }
+
+    body.dark a.btn:hover {
+      background: #0ea5e9;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <h1>✅ Thank You!</h1>
+  <p>Your message has been sent successfully.<br>
+     I’ll get back to you as soon as possible, in shaa Allah.</p>
+
+  <a href="index.html" class="btn">← Go Back to Portfolio</a>
+
+  <script>
+    // Optional: Enable dark mode if body has .dark (from localStorage)
+    if (localStorage.getItem('theme') === 'dark') {
+      document.body.classList.add('dark');
+    }
+  </script>
+</body>
+</html>
