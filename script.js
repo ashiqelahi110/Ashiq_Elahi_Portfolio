@@ -74,8 +74,8 @@ backToTop.addEventListener('click', () => {
 
 // ========= Contact Form Alert =========
 const contactForm = document.getElementById('contact-form');
-contactForm.addEventListener('submit', function (e) {
-  e.preventDefault();
-  alert("✅ Thank you! Your message has been sent.");
-  contactForm.reset();
-});
+if (contactForm) {
+  contactForm.addEventListener('submit', function () {
+    alert("✅ Thank you! Your message has been sent.");
+  });
+}
