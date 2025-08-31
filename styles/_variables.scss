@@ -1,0 +1,68 @@
+/* ========== Variables & Reset ========== */
+:root {
+  --primary: #0ea5e9;
+  --primary-light: #dbeafe;
+  --accent: #38bdf8;
+  --text: #1e293b;
+  --muted: #64748b;
+  --bg: #f7f9fc;
+  --bg-alt: #ffffff;
+  --heading: #0f172a;
+}
+
+/* For Dark Mode */
+body.dark {
+  --dark-bg-1: #0f172a;
+  --dark-bg-2: #1e293b;
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 32px;
+  color: var(--heading);
+  margin-bottom: 45px;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 10px;
+}
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 60px;
+  height: 3px;
+  background-color: var(--primary);
+  transform: translateX(-50%);
+  transition: width 0.4s ease;
+}
+.section-title:hover::after {
+  width: 100px;
+}
+
