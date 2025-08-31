@@ -1,3 +1,9 @@
+// Apply saved theme on load
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'dark') {
+  document.body.classList.add('dark');
+}
+
 // ========= Typing Effect with Pause =========
 const texts = ["ISLAMIC SCHOLAR", "EDUCATOR", "WRITER", "IT-SKILLED", "DEVELOPER"];
 let count = 0;
@@ -23,9 +29,11 @@ let letter = '';
 
 // ========= Theme Toggle =========
 const toggleBtn = document.getElementById('theme-toggle');
+toggleBtn.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
 toggleBtn.addEventListener('click', () => {
   document.body.classList.toggle('dark');
   toggleBtn.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
 });
 
 // ========= Burger Menu =========
