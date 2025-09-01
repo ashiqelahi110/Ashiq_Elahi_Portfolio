@@ -1,17 +1,13 @@
 // ========= Typing Effect with Pause =========
 const texts = ["ISLAMIC SCHOLAR", "EDUCATOR", "WRITER", "IT-SKILLED", "DEVELOPER"];
-let count = 0;
-let index = 0;
-let currentText = '';
-let letter = '';
+let count = 0, index = 0;
 
 (function type() {
-  if (count === texts.length) {
-    count = 0;
-  }
-  currentText = texts[count];
-  letter = currentText.slice(0, ++index);
+  if (count === texts.length) count = 0;
+  let currentText = texts[count];
+  let letter = currentText.slice(0, ++index);
   document.getElementById('typed-text').textContent = letter;
+
   if (letter.length === currentText.length) {
     count++;
     index = 0;
@@ -35,20 +31,20 @@ burger.addEventListener('click', () => {
   nav.classList.toggle('active');
 });
 
-// ========= Scroll Reveal Animation =========
+// ========= Scroll Animation (both directions) =========
+const animElements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right');
+
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('visible');
+    } else {
+      entry.target.classList.remove('visible');
     }
   });
-}, {
-  threshold: 0.1
-});
+}, { threshold: 0.2 });
 
-document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right').forEach(el => {
-  observer.observe(el);
-});
+animElements.forEach(el => observer.observe(el));
 
 // ========= Scroll Progress Bar =========
 window.addEventListener('scroll', () => {
@@ -61,13 +57,8 @@ window.addEventListener('scroll', () => {
 // ========= Back to Top Button =========
 const backToTop = document.getElementById('backToTop');
 window.addEventListener('scroll', () => {
-  if (window.scrollY > 300) {
-    backToTop.style.display = 'block';
-  } else {
-    backToTop.style.display = 'none';
-  }
+  backToTop.style.display = window.scrollY > 300 ? 'block' : 'none';
 });
-
 backToTop.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
@@ -79,3 +70,37 @@ contactForm.addEventListener('submit', function (e) {
   alert("✅ Thank you! Your message has been sent.");
   contactForm.reset();
 });
+
+// // ========= Download CV Modal =========
+// const cvModal = document.getElementById('cvModal');
+// const downloadBtn = document.getElementById('downloadCV');
+// const closeBtn = document.querySelector('.close-modal');
+// const englishBtn = document.getElementById('downloadEnglish');
+// const arabicBtn = document.getElementById('downloadArabic');
+
+// downloadBtn.addEventListener('click', () => {
+//   cvModal.style.display = "block";
+// });
+
+// closeBtn.addEventListener('click', () => {
+//   cvModal.style.display = "none";
+// });
+
+// // Modal বাইরে ক্লিক করলে বন্ধ হবে
+// window.addEventListener('click', (e) => {
+//   if (e.target === cvModal) {
+//     cvModal.style.display = "none";
+//   }
+// });
+
+// // English CV download
+// englishBtn.addEventListener('click', () => {
+//   window.location.href = "cv/english_cv.pdf";
+//   cvModal.style.display = "none";
+// });
+
+// // Arabic CV download
+// arabicBtn.addEventListener('click', () => {
+//   window.location.href = "cv/arabic_cv.pdf";
+//   cvModal.style.display = "none";
+// });
