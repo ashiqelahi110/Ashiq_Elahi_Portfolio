@@ -209,6 +209,8 @@ a.btn {
   /* একটু normal weight */
 }
 
+
+
 @keyframes pulse {
   from {
     transform: scale(1);
@@ -644,4 +646,3 @@ body.dark .contact-section {
   color: #333;
   cursor: pointer;
 }
-

@@ -96,3 +96,4 @@ arabicBtn.addEventListener('click', () => {
   window.location.href = "assets/Arabic_Ashiq Elahi_CV_IT & Digital Services Professional.pdf - Copy.pdf";
   cvModal.style.display = "none";
 });
+
