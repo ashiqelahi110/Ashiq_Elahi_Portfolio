@@ -63,44 +63,36 @@ backToTop.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
-// ========= Contact Form Alert =========
-const contactForm = document.getElementById('contact-form');
-contactForm.addEventListener('submit', function (e) {
-  e.preventDefault();
-  alert("✅ Thank you! Your message has been sent.");
-  contactForm.reset();
+// ========= Download CV Modal =========
+const cvModal = document.getElementById('cvModal');
+const downloadBtn = document.getElementById('downloadCV');
+const closeBtn = document.querySelector('.close-modal');
+const englishBtn = document.getElementById('downloadEnglish');
+const arabicBtn = document.getElementById('downloadArabic');
+
+downloadBtn.addEventListener('click', () => {
+  cvModal.style.display = "block";
 });
 
-// // ========= Download CV Modal =========
-// const cvModal = document.getElementById('cvModal');
-// const downloadBtn = document.getElementById('downloadCV');
-// const closeBtn = document.querySelector('.close-modal');
-// const englishBtn = document.getElementById('downloadEnglish');
-// const arabicBtn = document.getElementById('downloadArabic');
+closeBtn.addEventListener('click', () => {
+  cvModal.style.display = "none";
+});
 
-// downloadBtn.addEventListener('click', () => {
-//   cvModal.style.display = "block";
-// });
+// Modal বাইরে ক্লিক করলে বন্ধ হবে
+window.addEventListener('click', (e) => {
+  if (e.target === cvModal) {
+    cvModal.style.display = "none";
+  }
+});
 
-// closeBtn.addEventListener('click', () => {
-//   cvModal.style.display = "none";
-// });
+// English CV download
+englishBtn.addEventListener('click', () => {
+  window.location.href = "assets/Ashiq Elahi_CV_IT & Digital Services Professional.pdf";
+  cvModal.style.display = "none";
+});
 
-// // Modal বাইরে ক্লিক করলে বন্ধ হবে
-// window.addEventListener('click', (e) => {
-//   if (e.target === cvModal) {
-//     cvModal.style.display = "none";
-//   }
-// });
-
-// // English CV download
-// englishBtn.addEventListener('click', () => {
-//   window.location.href = "cv/english_cv.pdf";
-//   cvModal.style.display = "none";
-// });
-
-// // Arabic CV download
-// arabicBtn.addEventListener('click', () => {
-//   window.location.href = "cv/arabic_cv.pdf";
-//   cvModal.style.display = "none";
-// });
+// Arabic CV download
+arabicBtn.addEventListener('click', () => {
+  window.location.href = "assets/Arabic_Ashiq Elahi_CV_IT & Digital Services Professional.pdf - Copy.pdf";
+  cvModal.style.display = "none";
+});
