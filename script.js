@@ -1,3 +1,9 @@
+// Apply saved theme on page load
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'dark') {
+  document.body.classList.add('dark');
+}
+
 /* ===== Typing Effect (multilingual) — REPLACE your old typing code with this ===== */
 let TYPED_TIMER = null;
 let TYPED_INDEX = 0;
@@ -61,9 +67,11 @@ initTypingForLang(localStorage.getItem('lang') || 'en');
 
 // ========= Theme Toggle =========
 const toggleBtn = document.getElementById('theme-toggle');
+toggleBtn.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
 toggleBtn.addEventListener('click', () => {
   document.body.classList.toggle('dark');
   toggleBtn.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
 });
 
 // ========= Burger Menu =========

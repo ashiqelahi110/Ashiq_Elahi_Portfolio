@@ -78,8 +78,9 @@
   <a href="index.html" class="btn">← Go Back to Portfolio</a>
 
   <script>
-    // Optional: Enable dark mode if body has .dark (from localStorage)
-    if (localStorage.getItem('theme') === 'dark') {
+    // Apply saved theme on page load
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
       document.body.classList.add('dark');
     }
   </script>
