@@ -129,13 +129,13 @@ window.addEventListener('click', (e) => {
 
 // English CV download
 englishBtn.addEventListener('click', () => {
-  window.location.href = "assets/Ashiq_Elahi_CV_IT & Digital Services Professional.pdf";
+  window.location.href = "assets/Ashiq_Elahi_CV_IT_and_Digital_Services_Professional.pdf";
   cvModal.style.display = "none";
 });
 
 // Arabic CV download
 arabicBtn.addEventListener('click', () => {
-  window.location.href = "assets/Arabic_Ashiq_Elahi_CV_IT & Digital Services Professional.pdf - Copy.pdf";
+  window.location.href = "assets/Arabic_Ashiq_Elahi_CV_IT_and_Digital_Services_Professional.pdf";
   cvModal.style.display = "none";
 });
 
