@@ -175,7 +175,7 @@ a {
   margin-bottom: 12px;
 }
 
-.hero-text h2 span {
+#name {
   color: #fff9c4;
 }
 
@@ -200,7 +200,7 @@ a.btn, .btn {
   background: var(--primary-light);
   animation: pulse 0.8s infinite alternate;
 }
-a.btn {
+#Explore, #DownloadCV {
   padding: 8px 24px;
   /* উপরে–নিচে কম padding */
   border: 2px solid #000;
@@ -494,35 +494,60 @@ a.btn {
   }
 }
 
-/* ========== Dark Mode Overrides ========== */
-body.dark .section-title,
+/* ========== Full & Final Dark Theme ========== */
+
+/* Generic Text */
 body.dark h1,
 body.dark h2,
 body.dark h3,
-body.dark h4 {
+body.dark h4,
+body.dark .section-title,
+body.dark p,
+body.dark li,
+body.dark strong {
   color: #f8fafc;
-  /* Headings fix */
 }
 
-body.dark .about-section p,
-body.dark .skills-list li,
+/* About section fix */
+body.dark .about-section p {
+  color: #e2e8f0;
+}
+
+/* Skills */
+body.dark .skills-list li {
+  color: #e2e8f0;
+}
+
+/* Certifications & Languages */
 body.dark .certifications-list li,
-body.dark .languages-list li,
+body.dark .languages-list li {
+  color: #e2e8f0;
+}
+
+/* Experience & Education */
 body.dark .experience-item h3,
 body.dark .education-item h3,
 body.dark .experience-item ul,
 body.dark .education-item p {
-  color: #e2e8f0;
+  color: #f1f5f9;
 }
 
+/* Hero highlight */
 body.dark .hero-text h2 span {
   color: #fef08a;
 }
 
+/* Cards */
 body.dark .card {
   background-color: #1e293b;
 }
 
+body.dark .card h3,
+body.dark .card p {
+  color: #f1f5f9;
+}
+
+/* Buttons */
 body.dark .btn {
   background: #f1f5f9;
   color: #0ea5e9;
@@ -533,6 +558,7 @@ body.dark .btn:hover {
   color: #1e293b;
 }
 
+/* Header & Navbar */
 body.dark .site-header {
   background-color: #1e293b;
 }
@@ -549,6 +575,7 @@ body.dark .nav.active {
   background: #1e293b;
 }
 
+/* Form */
 body.dark .contact-form {
   background-color: #1e293b;
 }
@@ -560,6 +587,7 @@ body.dark .form-group textarea {
   border-color: #334155;
 }
 
+/* Footer */
 body.dark .site-footer {
   background-color: #020617;
   color: #cbd5e1;
@@ -573,6 +601,7 @@ body.dark .site-footer a:hover {
   color: #ffffff;
 }
 
+/* Back to Top */
 body.dark #backToTop {
   background: #38bdf8;
   color: #fff;
@@ -582,20 +611,28 @@ body.dark #backToTop:hover {
   background: #0ea5e9;
 }
 
+/* Theme Toggle Icon */
 body.dark #theme-toggle {
   color: #f1f5f9;
 }
 
+/* Progress Bar */
 body.dark #scroll-progress {
   background: #38bdf8;
 }
 
+/* Section Backgrounds in Dark Mode */
 body.dark .about-section,
 body.dark .certifications-section,
 body.dark .work-section,
+body.dark .footer
+ {
+  background-color: var(--dark-bg-1);
+}
+
+
 body.dark .skills-section,
 body.dark .languages-section,
-body.dark .education-section,
 body.dark .experience-section,
 body.dark .contact-section {
   background-color: var(--dark-bg-2);
@@ -645,4 +682,320 @@ body.dark .contact-section {
   font-weight: bold;
   color: #333;
   cursor: pointer;
+}
+
+/* === Language Toggle (Header) === */
+.lang-toggle {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 92px;
+  /* পিলের প্রস্থ */
+  height: 36px;
+  /* পিলের উচ্চতা */
+  padding: 4px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(6px);
+  cursor: pointer;
+  transition: transform .18s ease;
+  user-select: none;
+}
+
+.lang-toggle:hover {
+  transform: scale(1.03);
+}
+
+.lang-toggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.lang-toggle .label {
+  flex: 1;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .5px;
+  color: #eaf5ff;
+  /* হেডারের নীল ব্যাকগ্রাউন্ডে হালকা উজ্জ্বল টেক্সট */
+  opacity: .75;
+  z-index: 1;
+}
+
+.lang-toggle .thumb {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  /* is-en অবস্থায় বামে থাকবে */
+  width: calc(50% - 8px);
+  height: calc(100% - 8px);
+  border-radius: 9999px;
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .18);
+  transition: left .25s ease, box-shadow .25s ease, transform .2s ease;
+}
+
+.lang-toggle.is-en .thumb {
+  left: 4px;
+}
+
+.lang-toggle.is-ar .thumb {
+  left: calc(50% + 4px);
+}
+
+.lang-toggle.is-en .label.en,
+.lang-toggle.is-ar .label.ar {
+  opacity: 1;
+  color: #0f172a;
+}
+
+/* সক্রিয় পাশ গাঢ় দেখাবে */
+
+/* Dark mode হেডারে টগল একটু উজ্জ্বল */
+body.dark .lang-toggle {
+  border-color: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* কম অ্যানিমেশন পছন্দ হলে */
+@media (prefers-reduced-motion: reduce) {
+
+  .lang-toggle,
+  .lang-toggle .thumb {
+    transition: none;
+  }
+}
+
+/* === Language Popup (Fullscreen, Diagonal Split) === */
+.lang-popup {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: none;
+  /* hidden থাকলে none, JS খুলে দেবে */
+}
+
+.lang-popup:not([hidden]) {
+  display: block;
+}
+
+.lang-wrap {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  overflow: hidden;
+  background: linear-gradient(180deg, rgba(0, 0, 0, .15), rgba(0, 0, 0, .25));
+  backdrop-filter: blur(2px);
+}
+
+/* Panel base */
+.lang-panel {
+  position: relative;
+  flex: 1 1 50%;
+  border: 0;
+  cursor: pointer;
+  padding: 0;
+  outline: none;
+  color: #ffffff;
+  overflow: hidden;
+  transition: flex .5s ease, transform .25s ease, opacity .35s ease;
+}
+
+/* Inner content */
+.lang-panel .panel-inner {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  place-content: center;
+  gap: 10px;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transform: translateZ(0);
+}
+
+.lang-panel .panel-code {
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  opacity: .85;
+}
+
+.lang-panel .panel-title {
+  font-size: 42px;
+  line-height: 1;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.lang-panel .panel-sub {
+  font-size: 14px;
+  opacity: .9;
+}
+
+/* Diagonal shapes (clip-path) + gradients */
+.panel-en {
+  background: linear-gradient(135deg, #60a5fa, #0ea5e9);
+  /* বাম প্যানেল: ডায়াগোনাল কাট */
+  clip-path: polygon(0 0, 100% 0, 80% 100%, 0% 100%);
+}
+
+.panel-ar {
+  background: linear-gradient(135deg, #d4af37, #0ea85f);
+  /* ডান প্যানেল: উল্টো ডায়াগোনাল */
+  clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%);
+}
+
+/* Entry animation (slide-in) */
+.panel-en {
+  transform: translateX(-24px);
+  opacity: 0;
+}
+
+.panel-ar {
+  transform: translateX(24px);
+  opacity: 0;
+}
+
+.lang-popup.show .panel-en,
+.lang-popup.show .panel-ar {
+  transform: translateX(0);
+  opacity: 1;
+  transition: transform .5s ease, opacity .5s ease;
+}
+
+/* Hover effects */
+.lang-panel:hover {
+  transform: scale(1.02);
+}
+
+.lang-panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(600px 200px at var(--mx, 50%) var(--my, 50%), rgba(255, 255, 255, .18), transparent 60%);
+  opacity: 0;
+  transition: opacity .2s ease;
+}
+
+.lang-panel:hover::after {
+  opacity: .7;
+}
+
+/* Click -> expand selected */
+.lang-popup.choosing-en .panel-en {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  flex: 1 1 100%;
+  z-index: 3;
+}
+
+.lang-popup.choosing-en .panel-ar {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(.98);
+}
+
+.lang-popup.choosing-ar .panel-ar {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  flex: 1 1 100%;
+  z-index: 3;
+}
+
+.lang-popup.choosing-ar .panel-en {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(.98);
+}
+
+/* Dark mode bonus */
+body.dark .lang-wrap {
+  background: linear-gradient(180deg, rgba(0, 0, 0, .35), rgba(0, 0, 0, .45));
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+
+  .lang-panel,
+  .lang-popup.show .panel-en,
+  .lang-popup.show .panel-ar {
+    transition: none;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
+
+/* Cursor glow follows mouse (optional, nice touch) */
+.lang-panel {
+  --mx: 50%;
+  --my: 50%;
+}
+
+.lang-panel:hover {
+  will-change: transform;
+}
+
+/* === Step 7: RTL polish (append at the very end of style.css) === */
+
+/* 1) Hero layout: RTL হলে ছবি↔টেক্সট swap + টেক্সট ডান-সোজা */
+html[dir="rtl"] .hero-content {
+  flex-direction: row-reverse;
+}
+
+html[dir="rtl"] .hero-text {
+  text-align: right;
+}
+
+/* 2) Navbar: লিংকগুলো RTL-এ ডান-সোজা; মোবাইল মেনু ডান থেকে না, বাম থেকে দেখাতে চাইলে এভাবে */
+html[dir="rtl"] .nav a {
+  text-align: right;
+}
+
+@media (max-width: 768px) {
+  html[dir="rtl"] .nav {
+    left: 20px;
+    right: auto;
+  }
+
+  /* আগেরটা right:20px ছিল */
+}
+
+/* 3) Skills চেকমার্ক আইকন: RTL-এ ডানে যাবে */
+html[dir="rtl"] .skills-list li {
+  padding-right: 25px;
+  padding-left: 0;
+}
+
+html[dir="rtl"] .skills-list li::before {
+  right: 0;
+  left: auto;
+}
+
+/* 4) Cards: হেডিং/টেক্সট ডান-সোজা (আরবিতে পড়তে স্বাভাবিক লাগে) */
+html[dir="rtl"] .card h3,
+html[dir="rtl"] .card p {
+  text-align: right;
+}
+
+/* 5) Contact form: ইমেইল ছাড়া বাকি ফিল্ডগুলো RTL-এ ডান-সোজা */
+html[dir="rtl"] input:not([type="email"]),
+html[dir="rtl"] textarea {
+  text-align: right;
+}
+
+/* 6) CV Modal: ক্লোজ বাটন RTL-এ বামে */
+html[dir="rtl"] .close-modal {
+  left: 20px;
+  right: auto;
+}
+
+/* 7) Scroll progress bar: RTL-এ ডান থেকে বামে বাড়বে */
+html[dir="rtl"] #scroll-progress {
+  right: 0;
+  left: auto;
 }

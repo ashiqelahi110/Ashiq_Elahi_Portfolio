@@ -24,16 +24,25 @@
         <div class="container header-flex">
             <h1 class="logo">Ashiq Elahi</h1>
             <nav class="nav" id="navbar">
-                <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#experience">Experience</a>
-                <a href="#education">Education</a>
-                <a href="#skills">Skills</a>
-                <a href="#works">Projects</a>
-                <a href="#contact">Contact</a>
+                <a href="#home" data-i18n="nav.home">Home</a>
+                <a href="#about" data-i18n="nav.about">About</a>
+                <a href="#experience" data-i18n="nav.experience">Experience</a>
+                <a href="#education" data-i18n="nav.education">Education</a>
+                <a href="#skills" data-i18n="nav.skills">Skills</a>
+                <a href="#works" data-i18n="nav.works">Projects</a>
+                <a href="#contact" data-i18n="nav.contact">Contact</a>
             </nav>
             <button class="burger" id="burger">&#9776;</button>
             <button id="theme-toggle" title="Toggle Theme">🌙</button>
+
+<!-- index.html → header .header-flex এর ভিতরে, #theme-toggle এর পরে এইটা বসান -->
+<button id="lang-toggle" class="lang-toggle is-en" type="button" aria-pressed="false" aria-label="Switch language"
+    title="Switch to العربية">
+    <span class="label en">EN</span>
+    <span class="thumb" aria-hidden="true"></span>
+    <span class="label ar">AR</span>
+</button>
+
         </div>
     </header>
 
@@ -41,10 +50,13 @@
     <section class="hero fade-in" id="home">
         <div class="container hero-content">
             <div class="hero-text slide-in-left">
-                <h2>Assalamu Alaikum, I'm <span>Ashiq Elahi</span></h2>
+                <h2>
+                    <span data-i18n="hero.greet">Assalamu Alaikum, I'm</span>
+                    <span id="name">Ashiq Elahi</span>
+                </h2>
                 <p><span id="typed-text"></span></p>
-                <a href="#works" class="btn">Explore My Work</a>
-            <button id="downloadCV" class="btn">Download CV</button>
+                <a href="#works" class="btn" id="Explore" data-i18n="btn.explore">Explore My Work</a>
+            <button id="downloadCV" class="btn" data-i18n="btn.downloadCv">Download CV</button>
             </div>
             <div class="hero-image slide-in-right">
                 <img src="assets/resize.JPG" alt="Ashiq Elahi" />
@@ -55,7 +67,7 @@
     <!-- About Me -->
     <section class="about-section fade-in" id="about">
         <div class="container">
-            <h2 class="section-title">About Me</h2>
+            <h2 class="section-title" data-i18n="section.about">About Me</h2>
             <p>
                 I am <strong>Ashiq Elahi</strong>, IT-skilled professional with strong expertise in Microsoft Office, AI tools, and WordPress, along with basic knowledge
                 of HTML & CSS. Experienced in digital content development, financial record management, and online education support.
@@ -68,7 +80,7 @@
 <!-- Experience -->
 <section class="experience-section fade-in" id="experience">
     <div class="container">
-        <h2 class="section-title">Experience</h2>
+        <h2 class="section-title" data-i18n="section.experience">Experience</h2>
 
         <div class="experience-item slide-in-left">
             <h3>IT & Digital Services – Talimul Quran Was Sunnah Internet Madrasa</h3>
@@ -110,7 +122,7 @@
 <!-- Education -->
 <section class="education-section fade-in" id="education">
     <div class="container">
-        <h2 class="section-title">Education</h2>
+        <h2 class="section-title" data-i18n="section.education">Education</h2>
 
         <div class="education-item slide-in-left">
             <h3>Takmil (Dawrah-e-Hadith)</h3>
@@ -159,7 +171,7 @@
 <!-- Skills -->
 <section class="skills-section fade-in" id="skills">
     <div class="container">
-        <h2 class="section-title">Skills</h2>
+        <h2 class="section-title" data-i18n="section.skills">Skills</h2>
         <ul class="skills-list slide-in-left">
             <li>✔️ Microsoft Word, Excel & PowerPoint (Advanced)</li>
             <li>✔️ AI Tools (Content Creation & Automation)</li>
@@ -175,7 +187,7 @@
 <!-- Certifications -->
 <section class="certifications-section fade-in">
     <div class="container">
-        <h2 class="section-title">Certifications & Training</h2>
+        <h2 class="section-title" data-i18n="section.certs">Certifications & Training</h2>
         <ul class="certifications-list slide-in-right">
             <li>📌 Small Business Management – As-Sunnah Skill Development Institute</li>
             <li>📌 Public Speaking & Communication Skills Workshops</li>
@@ -188,7 +200,7 @@
 <!-- Languages -->
 <section class="languages-section fade-in">
     <div class="container">
-        <h2 class="section-title">Languages</h2>
+        <h2 class="section-title" data-i18n="section.languages">Languages</h2>
         <ul class="languages-list slide-in-left">
             <li>🇧🇩 Bangla – Native or Bilingual</li>
             <li>🇸🇦 Arabic – Professional Working</li>
@@ -203,44 +215,43 @@
     <!-- Projects -->
     <section class="work-section fade-in" id="works">
         <div class="container">
-            <h2 class="section-title">My Projects</h2>
+            <h2 class="section-title" data-i18n="section.projects">My Projects</h2>
             <div class="card-grid">
                 <div class="card slide-in-left">
                     <img src="assets/Quran.jpg" alt="Qur'an Tilawat" />
-                    <h3>Qur'an Tilawat</h3>
-                    <p>Listen to beautiful and soulful recitations.</p>
-                    <a href="#" class="btn">Listen Now</a>
+                    <h3 data-i18n="card.quran.title">Qur'an Tilawat</h3>
+                    <p data-i18n="card.quran.desc">Listen to beautiful and soulful recitations.</p>
+                    <a href="#" class="btn" data-i18n="btn.listen">Listen Now</a>
                 </div>
                 <div class="card slide-in-right">
                     <img src="assets/hadis.jpg" alt="Hadith" />
-                    <h3>Hadith Collection</h3>
-                    <p>Selected Hadiths with Bangla translation and explanation.</p>
-                    <a href="#" class="btn">Explore</a>
+                    <h3 ata-i18n="card.hadith.title">Hadith Collection</h3>
+                    <p data-i18n="card.hadith.desc">Selected Hadiths with Bangla translation and explanation.</p>
+                    <a href="#" class="btn" data-i18n="btn.exploreGeneric">Explore</a>
                 </div>
                 <div class="card slide-in-left">
                     <img src="assets/dua.jpg" alt="Dua" />
-                    <h3>Daily Du'as</h3>
-                    <p>Important daily prayers with translation.</p>
-                    <a href="#" class="btn">Learn More</a>
+                    <h3 data-i18n="card.dua.title">Daily Du'as</h3>
+                    <p data-i18n="card.dua.desc">Important daily prayers with translation.</p>
+                    <a href="#" class="btn" data-i18n="btn.learn">Learn More</a>
                 </div>
                 <div class="card slide-in-right">
-                    <img src="assets/html code.png" alt="Coding Projects" />
-                    <h3>Web Projects</h3>
-                    <p>Modern, responsive websites using HTML & CSS.</p>
-                    <a href="#" class="btn">View Projects</a>
+                    <img src="assets/html_code.png" alt="Coding Projects" />
+                    <h3 data-i18n="card.web.title">Web Projects</h3>
+                    <p data-i18n="card.web.desc">Modern, responsive websites using HTML & CSS.</p>
+                    <a href="#" class="btn" data-i18n="btn.viewProjects">View Projects</a>
                 </div>
                 <div class="card slide-in-left">
                     <img src="assets/poster.png" alt="Poster Design" />
-                    <h3>Poster Designs</h3>
-                    <p>Islamic poster design using Illustrator & Photoshop.</p>
-                    <a href="#" class="btn">View Designs</a>
+                    <h3 data-i18n="card.poster.title">Poster Designs</h3>
+                    <p data-i18n="card.poster.desc">Islamic poster design using Illustrator & Photoshop.</p>
+                    <a href="#" class="btn" data-i18n="btn.viewDesigns">View Designs</a>
                 </div>
                         <div class="card slide-in-left">
                             <img src="assets/data_managment.jpg" alt="Data Management" />
-                            <h3>Data Management</h3>
-                            <p style="text-align: justify;">Managing student records, financial reports, and academic data using Microsoft Excel & Word. Developed and
-                                maintained digital databases to ensure accuracy and efficiency.</p>
-                            <a href="#" class="btn">See Details</a>
+                            <h3 data-i18n="card.data.title">Data Management</h3>
+                            <p style="text-align: justify;" data-i18n="card.data.desc">Managed academic, financial, and student data with digital accuracy.</p>
+                            <a href="#" class="btn" data-i18n="btn.dataDetails">See Details</a>
                         </div>
             </div>
         </div>
@@ -249,29 +260,29 @@
     <!-- Contact -->
     <section class="contact-section fade-in" id="contact">
         <div class="container">
-            <h2 class="section-title">Contact Me</h2>
+            <h2 class="section-title" data-i18n="section.contact">Contact Me</h2>
             <form class="contact-form slide-in-left" action="https://formsubmit.co/ashiqelahi110@gmail.com"
                 method="POST">
 
                 <!-- OPTIONAL: Name Field -->
                 <div class="form-group">
-                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="text" name="name" placeholder="Your Name" data-i18n="contact.name" data-i18n-attr="placeholder" required>
                 </div>
 
                 <!-- OPTIONAL: Email Field -->
                 <div class="form-group">
-                    <input type="email" name="email" placeholder="Your Email" required>
+                    <input type="email" name="email" placeholder="Your Email" data-i18n="contact.email" data-i18n-attr="placeholder" required>
                 </div>
 
                 <!-- OPTIONAL: Message Field -->
                 <div class="form-group">
-                    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                    <textarea name="message" rows="5" placeholder="Your Message" data-i18n="contact.message" data-i18n-attr="placeholder" required></textarea>
                 </div>
 
                 <!-- Hidden Input (optional but recommended) -->
                 <input type="hidden" name="_captcha" value="false">
                <input type="hidden" name="_next" value="https://ashiqelahi110.github.io/Ashiq_Elahi_Portfolio/thankyou.html">
-                <button type="submit" class="btn">Send Message</button>
+                <button type="submit" class="btn" data-i18n="btn.sendMessage">Send Message</button>
             </form>
         </div>
     </section>
@@ -283,8 +294,11 @@
     <!-- Footer -->
     <footer class="site-footer fade-in">
         <div class="container">
-            <p>© 2025 Ashiq Elahi. All rights reserved. | Email: <a
-                    href="mailto:ashiqelahi110@gmail.com">ashiqelahi110@gmail.com</a></p>
+        <p>
+            <span data-i18n="footer.copy">© 2025 Ashiq Elahi. All rights reserved. | Email:</span>
+            <a href="mailto:ashiqelahi110@gmail.com">ashiqelahi110@gmail.com</a>
+        </p>
+
         </div>
     </footer>
 
@@ -292,15 +306,38 @@
     <div id="cvModal" class="cv-modal">
         <div class="cv-modal-content">
             <span class="close-modal">&times;</span>
-            <h2>Select CV Language</h2>
+            <h2 data-i18n="cv.title>Select CV Language</h2>
             <button id="downloadEnglish" class="btn">Download English CV</button>
             <button id="downloadArabic" class="btn">تحميل السيرة الذاتية بالعربية</button>
-
-                <!-- Script -->
-                <script src="script.js"></script>
-<a href=""></a>
         </div>
     </div>
+
+    <!-- Language Popup (put this just before </body>) -->
+    <div id="lang-popup" class="lang-popup" role="dialog" aria-modal="true" aria-labelledby="langPopupHeading" hidden>
+        <div class="lang-wrap">
+            <!-- English side -->
+            <button type="button" class="lang-panel panel-en" id="panel-en" aria-label="Choose English">
+                <div class="panel-inner">
+                    <span class="panel-code">EN</span>
+                    <h2 class="panel-title" id="langPopupHeading">English</h2>
+                    <p class="panel-sub">Modern, professional UI</p>
+                </div>
+            </button>
+    
+            <!-- Arabic side -->
+            <button type="button" class="lang-panel panel-ar" id="panel-ar" aria-label="اختر العربية" dir="rtl">
+                <div class="panel-inner">
+                    <span class="panel-code">AR</span>
+                    <h2 class="panel-title">العربية</h2>
+                    <p class="panel-sub">واجهة حديثة واحترافية</p>
+                </div>
+            </button>
+        </div>
+    </div>
+
+
+    <!-- Script -->
+    <script src="script.js"></script>
 </body>
 
 </html>

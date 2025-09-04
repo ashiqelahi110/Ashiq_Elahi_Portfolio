@@ -1,0 +1,53 @@
+{
+  "nav.home": "الرئيسية",
+  "nav.about": "التعريف",
+  "nav.experience": "الخبرات",
+  "nav.education": "التعليم",
+  "nav.skills": "المهارات",
+  "nav.works": "المشاريع",
+  "nav.contact": "تواصل",
+
+  "hero.greet": "السلام عليكم، أنا",
+  "btn.explore": "استكشف أعمالي",
+  "btn.downloadCv": "تحميل السيرة الذاتية",
+
+  "section.about": "نبذة عني",
+  "section.experience": "الخبرات",
+  "section.education": "التعليم",
+  "section.skills": "المهارات",
+  "section.projects": "مشاريعي",
+  "section.contact": "تواصل معي",
+  "section.languages": "اللغات",
+  "section.certs": "الشهادات والتدريب",
+
+  "card.quran.title": "تلاوة القرآن",
+  "card.quran.desc": "استمع إلى تلاوات عذبة ومؤثرة.",
+  "card.hadith.title": "مجموعة الأحاديث",
+  "card.hadith.desc": "أحاديث مختارة مع ترجمة بنغالية وشرح.",
+  "card.dua.title": "أدعية يومية",
+  "card.dua.desc": "أدعية مهمة مع الترجمة.",
+  "card.web.title": "مشاريع الويب",
+  "card.web.desc": "مواقع حديثة ومتجاوبة باستخدام HTML وCSS.",
+  "card.poster.title": "تصميم الملصقات",
+  "card.poster.desc": "تصاميم إسلامية باستخدام Illustrator وPhotoshop.",
+  "card.data.title": "إدارة البيانات",
+  "card.data.desc": "إدارة بيانات أكاديمية ومالية بدقة رقمية.",
+
+  "btn.listen": "استمع الآن",
+  "btn.exploreGeneric": "استكشاف",
+  "btn.learn": "تعلّم المزيد",
+  "btn.viewProjects": "عرض المشاريع",
+  "btn.viewDesigns": "عرض التصاميم",
+  "btn.dataDetails": "عرض التفاصيل",
+  "btn.sendMessage": "إرسال الرسالة",
+
+  "contact.name": "اسمك",
+  "contact.email": "بريدك الإلكتروني",
+  "contact.message": "رسالتك",
+
+  "cv.title": "اختر لغة السيرة الذاتية",
+  "cv.downloadEn": "Download English CV",
+  "cv.downloadAr": "تحميل السيرة الذاتية بالعربية",
+
+  "footer.copy": "© 2025 أشِق إلاهي. جميع الحقوق محفوظة. | البريد:"
+}
