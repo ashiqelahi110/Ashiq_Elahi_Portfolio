@@ -1,0 +1,53 @@
+{
+  "nav.home": "Home",
+  "nav.about": "About",
+  "nav.experience": "Experience",
+  "nav.education": "Education",
+  "nav.skills": "Skills",
+  "nav.works": "Projects",
+  "nav.contact": "Contact",
+
+  "hero.greet": "Assalamu Alaikum, I'm",
+  "btn.explore": "Explore My Work",
+  "btn.downloadCv": "Download CV",
+
+  "section.about": "About Me",
+  "section.experience": "Experience",
+  "section.education": "Education",
+  "section.skills": "Skills",
+  "section.projects": "Projects",
+  "section.contact": "Contact Me",
+  "section.languages": "Languages",
+  "section.certs": "Certificates & Training",
+
+  "card.quran.title": "Quran Recitation",
+  "card.quran.desc": "Listen to melodious recitations.",
+  "card.hadith.title": "Hadith Collection",
+  "card.hadith.desc": "Selected Hadiths with Bangla translation and explanation.",
+  "card.dua.title": "Daily Du'as",
+  "card.dua.desc": "Important daily prayers with translation.",
+  "card.web.title": "Web Projects",
+  "card.web.desc": "Modern, responsive websites using HTML & CSS.",
+  "card.poster.title": "Poster Designs",
+  "card.poster.desc": "Islamic poster design using Illustrator & Photoshop.",
+  "card.data.title": "Data Management",
+  "card.data.desc": "Managed academic, financial, and student data with digital accuracy.",
+
+  "btn.listen": "Listen Now",
+  "btn.exploreGeneric": "Explore",
+  "btn.learn": "Learn More",
+  "btn.viewProjects": "View Projects",
+  "btn.viewDesigns": "View Designs",
+  "btn.dataDetails": "See Details",
+  "btn.sendMessage": "Send Message",
+
+  "contact.name": "Your Name",
+  "contact.email": "Your Email",
+  "contact.message": "Your Message",
+
+  "cv.title": "Select CV Language",
+  "cv.downloadEn": "Download English CV",
+  "cv.downloadAr": "Download Arabic CV",
+
+  "footer.copy": "© 2025 Ashiq Elahi. All rights reserved. | Email:"
+}
