@@ -275,7 +275,7 @@ arabicBtn.addEventListener('click', () => {
 
 // (1) সহায়ক: data-i18n থাকা সব নোড আপডেট করা
 async function applyTranslationsFrom(lang){
-  const url = `/i18n/${lang}.json`;
+  const url = `i18n/${lang}.json`;
   let dict = {};
   try {
     const res = await fetch(url, { cache: 'no-cache' });
