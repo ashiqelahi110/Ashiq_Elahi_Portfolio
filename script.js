@@ -228,17 +228,13 @@ arabicBtn.addEventListener('click', () => {
     }
   }
 
-  // First visit? show popup
-  const existing = localStorage.getItem('lang');
-  if (!existing){
-    // Lock background scroll
-    document.body.style.overflow = 'hidden';
-    popup.hidden = false;
-    // trigger entry animation
-    requestAnimationFrame(()=> popup.classList.add('show'));
-    // focus for a11y
-    enBtn.focus();
-  }
+  // Show language selection popup on every visit
+  document.body.style.overflow = 'hidden';
+  popup.hidden = false;
+  // trigger entry animation
+  requestAnimationFrame(() => popup.classList.add('show'));
+  // focus for a11y
+  enBtn.focus();
 
   // Fancy glow follows mouse (optional)
   function handleMove(e){
