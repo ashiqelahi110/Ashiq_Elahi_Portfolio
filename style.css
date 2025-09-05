@@ -37,6 +37,16 @@ body {
   direction: rtl;
 }
 
+/* Arabic language font override when the page language is Arabic */
+html[lang='ar'] body {
+  font-family: 'Amiri', serif;
+}
+
+/* Any element explicitly marked as Arabic language */
+:lang(ar) {
+  font-family: 'Amiri', serif;
+}
+
 a {
   color: inherit;
   text-decoration: none;
