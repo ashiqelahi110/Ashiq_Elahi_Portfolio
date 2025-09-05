@@ -199,82 +199,6 @@ arabicBtn.addEventListener('click', () => {
   });
 })();
 
-/* ===== Language Popup Logic (place at very end of script.js) ===== */
-(function(){
-  const popup = document.getElementById('lang-popup');
-  const enBtn = document.getElementById('panel-en');
-  const arBtn = document.getElementById('panel-ar');
-  if (!popup || !enBtn || !arBtn) return;
-
-  // Helper: set lang + html attributes + header toggle reflect
-  function applyChosenLang(lang){
-    // 1) Persist + html attributes
-    localStorage.setItem('lang', lang);
-    document.documentElement.setAttribute('lang', lang);
-    document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
-
-    // 2) If global setLanguage exists (later i18n), use it
-    if (typeof window.setLanguage === 'function') {
-      window.setLanguage(lang);
-    }
-
-    // 3) Reflect header toggle (from Step 4)
-    const btn = document.getElementById('lang-toggle');
-    if (btn){
-      btn.classList.toggle('is-en', lang === 'en');
-      btn.classList.toggle('is-ar', lang === 'ar');
-      btn.setAttribute('aria-pressed', String(lang === 'ar'));
-      btn.title = (lang === 'en') ? 'Switch to العربية' : 'التبديل إلى English';
-    }
-  }
-
-  // Show language selection popup on every visit
-  document.body.style.overflow = 'hidden';
-  popup.hidden = false;
-  // trigger entry animation
-  requestAnimationFrame(() => popup.classList.add('show'));
-  // focus for a11y
-  enBtn.focus();
-
-  // Fancy glow follows mouse (optional)
-  function handleMove(e){
-    const rect = e.currentTarget.getBoundingClientRect();
-    const mx = ((e.clientX - rect.left) / rect.width) * 100;
-    const my = ((e.clientY - rect.top) / rect.height) * 100;
-    e.currentTarget.style.setProperty('--mx', mx + '%');
-    e.currentTarget.style.setProperty('--my', my + '%');
-  }
-  enBtn.addEventListener('mousemove', handleMove);
-  arBtn.addEventListener('mousemove', handleMove);
-
-  // Choose EN
-  enBtn.addEventListener('click', () => choose('en'));
-  // Choose AR
-  arBtn.addEventListener('click', () => choose('ar'));
-
-  function choose(lang){
-    // Expand animation class
-    popup.classList.add(lang === 'en' ? 'choosing-en' : 'choosing-ar');
-
-    // After short delay, apply language + close
-    setTimeout(() => {
-      applyChosenLang(lang);
-      closePopup();
-    }, 450); // matches CSS transition feel
-  }
-
-  function closePopup(){
-    popup.classList.remove('show','choosing-en','choosing-ar');
-    popup.hidden = true;
-    document.body.style.overflow = ''; // restore scroll
-  }
-
-  // Optional: ESC to close only if a language is already set (safety)
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && localStorage.getItem('lang')) closePopup();
-  });
-})();
-
 /* ===== Step 6: i18n Loader (place at the VERY END of script.js) ===== */
 
 // (1) সহায়ক: data-i18n থাকা সব নোড আপডেট করা
@@ -333,3 +257,6 @@ window.setLanguage = async function setLanguage(lang){
     btn.title = (lang === 'en') ? 'Switch to العربية' : 'التبديل إلى English';
   }
 };
+
+// Apply saved language on load
+window.setLanguage(localStorage.getItem('lang') || 'en');
