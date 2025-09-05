@@ -268,17 +268,20 @@
 
                 <!-- OPTIONAL: Name Field -->
                 <div class="form-group">
-                    <input type="text" name="name" placeholder="Your Name" data-i18n="contact.name" data-i18n-attr="placeholder" required>
+                    <label for="name" data-i18n="contact.name">Your Name</label>
+                    <input id="name" type="text" name="name" placeholder="Your Name" data-i18n="contact.name" data-i18n-attr="placeholder" required>
                 </div>
 
                 <!-- OPTIONAL: Email Field -->
                 <div class="form-group">
-                    <input type="email" name="email" placeholder="Your Email" data-i18n="contact.email" data-i18n-attr="placeholder" required>
+                    <label for="email" data-i18n="contact.email">Your Email</label>
+                    <input id="email" type="email" name="email" placeholder="Your Email" data-i18n="contact.email" data-i18n-attr="placeholder" required>
                 </div>
 
                 <!-- OPTIONAL: Message Field -->
                 <div class="form-group">
-                    <textarea name="message" rows="5" placeholder="Your Message" data-i18n="contact.message" data-i18n-attr="placeholder" required></textarea>
+                    <label for="message" data-i18n="contact.message">Your Message</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Your Message" data-i18n="contact.message" data-i18n-attr="placeholder" required></textarea>
                 </div>
 
                 <!-- Hidden Input (optional but recommended) -->
