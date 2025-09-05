@@ -538,7 +538,7 @@ body.dark .education-item p {
 }
 
 /* Hero highlight */
-body.dark .hero-text h2 span {
+body.dark #hero-name {
   color: #fef08a;
 }
 
@@ -801,6 +801,9 @@ html[dir="rtl"] .nav a {
 }
 
 /* 3) Skills চেকমার্ক আইকন: RTL-এ ডানে যাবে */
+html[dir="rtl"] .skills-list {
+  text-align: right;
+}
 html[dir="rtl"] .skills-list li {
   padding-right: 25px;
   padding-left: 0;
@@ -811,15 +814,20 @@ html[dir="rtl"] .skills-list li::before {
   left: auto;
 }
 
-/* 4) Cards: হেডিং/টেক্সট ডান-সোজা (আরবিতে পড়তে স্বাভাবিক লাগে) */
+/* 4) Cards: আরবিতে কার্ডের ভিতরের টেক্সট সেন্টার থাকবে */
 html[dir="rtl"] .card h3,
 html[dir="rtl"] .card p {
-  text-align: right;
+  text-align: center;
 }
 
 /* 5) Contact form: ইমেইল ছাড়া বাকি ফিল্ডগুলো RTL-এ ডান-সোজা */
 html[dir="rtl"] input:not([type="email"]),
 html[dir="rtl"] textarea {
+  text-align: right;
+}
+
+/* ইমেইল ফিল্ডের প্লেসহোল্ডার ডান থেকে শুরু করবে */
+html[dir="rtl"] input[type="email"]::placeholder {
   text-align: right;
 }
 
