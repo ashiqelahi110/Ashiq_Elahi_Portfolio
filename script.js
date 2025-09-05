@@ -63,21 +63,25 @@ function initTypingForLang(lang){
 
 // ========= Theme Toggle =========
 const toggleBtn = document.getElementById('theme-toggle');
-toggleBtn.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
-toggleBtn.addEventListener('click', () => {
-  document.body.classList.toggle('dark');
+if (toggleBtn) {
   toggleBtn.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
-  localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
-});
+  toggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+    toggleBtn.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
+    localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+  });
+}
 
 // ========= Burger Menu =========
 const burger = document.getElementById('burger');
 const nav = document.getElementById('navbar');
-burger.addEventListener('click', () => {
-  nav.classList.toggle('active');
-  const expanded = burger.getAttribute('aria-expanded') === 'true';
-  burger.setAttribute('aria-expanded', String(!expanded));
-});
+if (burger && nav) {
+  burger.addEventListener('click', () => {
+    nav.classList.toggle('active');
+    const expanded = burger.getAttribute('aria-expanded') === 'true';
+    burger.setAttribute('aria-expanded', String(!expanded));
+  });
+}
 
 // ========= Scroll Animation (both directions) =========
 const animElements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right');
@@ -112,38 +116,44 @@ backToTop.addEventListener('click', () => {
 });
 
 // ========= Download CV Modal =========
-const cvModal = document.getElementById('cvModal');
-const downloadBtn = document.getElementById('downloadCV');
-const closeBtn = document.querySelector('.close-modal');
-const englishBtn = document.getElementById('downloadEnglish');
-const arabicBtn = document.getElementById('downloadArabic');
+(() => {
+  const cvModal = document.getElementById('cvModal');
+  const downloadBtn = document.getElementById('downloadCV');
+  const closeBtn = document.querySelector('.close-modal');
+  const englishBtn = document.getElementById('downloadEnglish');
+  const arabicBtn = document.getElementById('downloadArabic');
 
-downloadBtn.addEventListener('click', () => {
-  cvModal.style.display = "block";
-});
-
-closeBtn.addEventListener('click', () => {
-  cvModal.style.display = "none";
-});
-
-// Modal বাইরে ক্লিক করলে বন্ধ হবে
-window.addEventListener('click', (e) => {
-  if (e.target === cvModal) {
-    cvModal.style.display = "none";
+  if (!(cvModal && downloadBtn && closeBtn && englishBtn && arabicBtn)) {
+    return;
   }
-});
 
-// English CV download
-englishBtn.addEventListener('click', () => {
-  window.location.href = "assets/Ashiq_Elahi_CV_IT_and_Digital_Services_Professional.pdf";
-  cvModal.style.display = "none";
-});
+  downloadBtn.addEventListener('click', () => {
+    cvModal.style.display = "block";
+  });
 
-// Arabic CV download
-arabicBtn.addEventListener('click', () => {
-  window.location.href = "assets/Arabic_Ashiq_Elahi_CV_IT_and_Digital_Services_Professional.pdf";
-  cvModal.style.display = "none";
-});
+  closeBtn.addEventListener('click', () => {
+    cvModal.style.display = "none";
+  });
+
+  // Modal বাইরে ক্লিক করলে বন্ধ হবে
+  window.addEventListener('click', (e) => {
+    if (e.target === cvModal) {
+      cvModal.style.display = "none";
+    }
+  });
+
+  // English CV download
+  englishBtn.addEventListener('click', () => {
+    window.location.href = "assets/Ashiq_Elahi_CV_IT_and_Digital_Services_Professional.pdf";
+    cvModal.style.display = "none";
+  });
+
+  // Arabic CV download
+  arabicBtn.addEventListener('click', () => {
+    window.location.href = "assets/Arabic_Ashiq_Elahi_CV_IT_and_Digital_Services_Professional.pdf";
+    cvModal.style.display = "none";
+  });
+})();
 
 
 /* ===== Language Toggle Logic (put at the very end of script.js) ===== */
