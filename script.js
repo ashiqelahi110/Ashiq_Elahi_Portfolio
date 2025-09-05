@@ -75,6 +75,8 @@ const burger = document.getElementById('burger');
 const nav = document.getElementById('navbar');
 burger.addEventListener('click', () => {
   nav.classList.toggle('active');
+  const expanded = burger.getAttribute('aria-expanded') === 'true';
+  burger.setAttribute('aria-expanded', String(!expanded));
 });
 
 // ========= Scroll Animation (both directions) =========
