@@ -4,10 +4,13 @@
   "nav.experience": "Experience",
   "nav.education": "Education",
   "nav.skills": "Skills",
+  "nav.certs": "Certificates",
+  "nav.languages": "Languages",
   "nav.works": "Projects",
   "nav.contact": "Contact",
 
   "hero.greet": "Assalamu Alaikum, I'm",
+  "hero.name": "Ashiq Elahi",
   "btn.explore": "Explore My Work",
   "btn.downloadCv": "Download CV",
 
@@ -19,6 +22,76 @@
   "section.contact": "Contact Me",
   "section.languages": "Languages",
   "section.certs": "Certificates & Training",
+
+  "about.text": "I am <strong>Ashiq Elahi</strong>, IT-skilled professional with strong expertise in Microsoft Office, AI tools, and WordPress, along with basic knowledge of HTML & CSS. Experienced in digital content development, financial record management, and online education support. Proven ability to integrate technology into academic and organizational workflows. Seeking to contribute technical, administrative, and creative skills to a progressive organization in the Middle East.",
+
+  "exp1.title": "IT & Digital Services – Talimul Quran Was Sunnah Internet Madrasa",
+  "exp1.duration": "<strong>Duration:</strong> Aug 2025 – Present",
+  "exp1.li1": "Managing financial records, student data, and official reports using Microsoft Excel & Word.",
+  "exp1.li2": "Preparing and maintaining accounts, budgets, and digital databases.",
+  "exp1.li3": "Using AI tools for content creation, automation, and productivity.",
+  "exp1.li4": "Designing and publishing online learning materials.",
+  "exp1.li5": "Managing and developing WordPress-based educational website.",
+  "exp1.li6": "Providing IT and digital support for teachers and students.",
+
+  "exp2.title": "Writer – Maktabatul Akbar, Dhaka",
+  "exp2.duration": "<strong>Duration:</strong> Jan 2025 – Jul 2025",
+  "exp2.li1": "Wrote, edited, and translated Islamic books/articles (Bangla, Arabic, English).",
+  "exp2.li2": "Formatted manuscripts using Microsoft Word & AI tools.",
+  "exp2.li3": "Collaborated with scholars to ensure authentic and accurate publications.",
+
+  "exp3.title": "Teaching & Administrative Service – Madrasah, Marisha",
+  "exp3.duration": "<strong>Duration:</strong> Jan 2024 – Dec 2024",
+  "exp3.li1": "Taught Islamic studies and general subjects.",
+  "exp3.li2": "Maintained digital academic records for 500+ students using MS Excel.",
+  "exp3.li3": "Prepared official documents and reports using Microsoft Office.",
+  "exp3.li4": "Assisted in administration and student guidance.",
+
+  "edu1.title": "Takmil (Dawrah-e-Hadith)",
+  "edu1.institute": "<strong>Institute:</strong> Jamia Islamia Darul Ulum Madania, Dhaka",
+  "edu1.year": "<strong>Year:</strong> 2024",
+  "edu1.grade": "<strong>Grade:</strong> Jayyid Jiddan | GPA: 78%",
+
+  "edu2.title": "Fojilot",
+  "edu2.institute": "<strong>Institute:</strong> Jamia Islamia Darul Ulum Madania, Dhaka",
+  "edu2.year": "<strong>Year:</strong> 2023",
+  "edu2.grade": "<strong>Grade:</strong> Jayyid Jiddan | GPA: 78%",
+
+  "edu3.title": "Sanabiya Ulya",
+  "edu3.institute": "<strong>Institute:</strong> Jamia Islamia Darul Ulum Dilu Road, Dhaka",
+  "edu3.year": "<strong>Year:</strong> 2022",
+  "edu3.grade": "<strong>Grade:</strong> Mumtaz (42nd Position) | GPA: 91%",
+
+  "edu4.title": "Primary",
+  "edu4.institute": "<strong>Institute:</strong> Jamia Islamia Darul Ulum Baitun Noor, Dhaka",
+  "edu4.year": "<strong>Year:</strong> 2018",
+  "edu4.grade": "<strong>Grade:</strong> Mumtaz (47th Position) | GPA: 91%",
+
+  "edu5.title": "Hifzul Qur'an",
+  "edu5.institute": "<strong>Institute:</strong> Jamia Islamia Darul Ulum Madania, Dhaka",
+  "edu5.year": "<strong>Year:</strong> 2015",
+
+  "edu6.title": "SSC",
+  "edu6.institute": "<strong>Institute:</strong> Joynal Abaden Alim Madrasah – Bhola",
+  "edu6.gpa": "<strong>GPA:</strong> 4.31",
+  "edu6.year": "<strong>Year:</strong> 2025",
+
+  "skill.li1": "✔️ Microsoft Word, Excel & PowerPoint (Advanced)",
+  "skill.li2": "✔️ AI Tools (Content Creation & Automation)",
+  "skill.li3": "✔️ WordPress Website Management",
+  "skill.li4": "✔️ Basic HTML & CSS",
+  "skill.li5": "✔️ Typing: Bangla, English, Arabic",
+  "skill.li6": "✔️ Basic Adobe Photoshop & Illustrator",
+
+  "cert.li1": "📌 Small Business Management – As-Sunnah Skill Development Institute",
+  "cert.li2": "📌 Public Speaking & Communication Skills Workshops",
+  "cert.li3": "📌 Corporate Manners & Career Consultation",
+
+  "lang.li1": "🇧🇩 Bangla – Native or Bilingual",
+  "lang.li2": "🇸🇦 Arabic – Professional Working",
+  "lang.li3": "🇬🇧 English – Professional Working",
+  "lang.li4": "🇵🇰 Urdu – Full Professional",
+  "lang.li5": "🇮🇳 Hindi – Full Professional",
 
   "card.quran.title": "Quran Recitation",
   "card.quran.desc": "Listen to melodious recitations.",
