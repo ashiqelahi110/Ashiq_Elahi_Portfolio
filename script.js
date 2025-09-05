@@ -198,6 +198,9 @@ arabicBtn.addEventListener('click', () => {
 /* ===== Step 6: i18n Loader (place at the VERY END of script.js) ===== */
 
 // (1) সহায়ক: data-i18n থাকা সব নোড আপডেট করা
+// Translator note: সাধারণত প্লেইন স্ট্রিং `textContent` দিয়ে বসানো হয়।
+// প্রয়োজনে শুধুমাত্র <strong>, <em>, <br> ট্যাগ ব্যবহার করতে পারেন;
+// অন্য সব ট্যাগ/অ্যাট্রিবিউট নিরাপত্তার জন্য সরিয়ে ফেলা হবে।
 async function applyTranslationsFrom(lang){
   const url = `i18n/${lang}.json`;
   let dict = {};
@@ -222,7 +225,26 @@ async function applyTranslationsFrom(lang){
       attr.split(',').map(s => s.trim()).forEach(a => el.setAttribute(a, val));
     } else {
       // সাধারণ টেক্সট বা HTML
-      el.innerHTML = val;
+      if (/<[a-z][\s\S]*>/i.test(val)) {
+        // সীমিত HTML অনুমোদিত।
+        const allowedTags = new Set(['STRONG', 'EM', 'BR']);
+        const tmp = document.createElement('div');
+        tmp.innerHTML = val;
+
+        tmp.querySelectorAll('*').forEach(node => {
+          if (!allowedTags.has(node.tagName)) {
+            node.replaceWith(document.createTextNode(node.textContent));
+          } else {
+            // সকল অ্যাট্রিবিউট মুছে ফেলি যেন অনাকাঙ্ক্ষিত স্ক্রিপ্ট না থাকে
+            [...node.attributes].forEach(attr => node.removeAttribute(attr.name));
+          }
+        });
+
+        el.textContent = '';
+        el.append(...tmp.childNodes);
+      } else {
+        el.textContent = val;
+      }
     }
   });
 }
