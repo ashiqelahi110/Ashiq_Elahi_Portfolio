@@ -42,10 +42,6 @@ function initTypingForLang(lang){
   startTyping();
 }
 
-// প্রথম লোডে লোকালস্টোরেজ দেখে শুরু করুন
-initTypingForLang(localStorage.getItem('lang') || 'en');
-
-
 // // ========= Typing Effect with Pause =========
 // const texts = ["ISLAMIC SCHOLAR", "EDUCATOR", "WRITER", "IT-SKILLED", "DEVELOPER"];
 // let count = 0, index = 0;
