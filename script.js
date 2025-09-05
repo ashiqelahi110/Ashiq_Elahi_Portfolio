@@ -225,8 +225,8 @@ async function applyTranslationsFrom(lang){
       // এক বা একাধিক অ্যাট্রিবিউট (কমা-সেপারেটেড)
       attr.split(',').map(s => s.trim()).forEach(a => el.setAttribute(a, val));
     } else {
-      // সাধারণ টেক্সট
-      el.textContent = val;
+      // সাধারণ টেক্সট বা HTML
+      el.innerHTML = val;
     }
   });
 }
