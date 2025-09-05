@@ -157,6 +157,16 @@ backToTop.addEventListener('click', () => {
 
 
 /* ===== Language Toggle Logic (put at the very end of script.js) ===== */
+
+function updateLangToggle(lang){
+  const btn = document.getElementById('lang-toggle');
+  if (!btn) return;
+  btn.classList.toggle('is-en', lang === 'en');
+  btn.classList.toggle('is-ar', lang === 'ar');
+  btn.setAttribute('aria-pressed', String(lang === 'ar'));
+  btn.title = (lang === 'en') ? 'Switch to العربية' : 'التبديل إلى English';
+}
+
 (function(){
   const btn = document.getElementById('lang-toggle');
   if (!btn) return;
@@ -178,28 +188,20 @@ backToTop.addEventListener('click', () => {
       window.setLanguage(lang);     // ভবিষ্যতের i18n ট্রান্সলেশন আপডেট এখানে হবে
     } else {
       coreSetLanguage(lang);        // এখন অন্তত lang/dir + localStorage কাজ করবে
+      updateLangToggle(lang);
     }
-    reflectState(lang);
   }
 
-  // d) টগলের ভিজ্যুয়াল স্টেট
-  function reflectState(lang){
-    btn.classList.toggle('is-en', lang === 'en');
-    btn.classList.toggle('is-ar', lang === 'ar');
-    btn.setAttribute('aria-pressed', String(lang === 'ar')); // AR হলে pressed=true
-    btn.title = (lang === 'en') ? 'Switch to العربية' : 'التبديل إلى English';
-  }
-
-  // e) শুরুতে স্টেট সেট
+  // d) শুরুতে স্টেট সেট
   applyLanguage(getLang());
 
-  // f) ক্লিক → টগল
+  // e) ক্লিক → টগল
   btn.addEventListener('click', () => {
     const next = (getLang() === 'en') ? 'ar' : 'en';
     applyLanguage(next);
   });
 
-  // g) কীবোর্ড সাপোর্ট
+  // f) কীবোর্ড সাপোর্ট
   btn.addEventListener('keydown', (e) => {
     if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); btn.click(); }
     if (e.key === 'ArrowLeft')  applyLanguage('en');
@@ -279,13 +281,7 @@ window.setLanguage = async function setLanguage(lang){
   initTypingForLang(lang);
 
   // 2C) হেডারের টগল ভিজ্যুয়াল স্টেট রিফ্লেক্ট
-  const btn = document.getElementById('lang-toggle');
-  if (btn){
-    btn.classList.toggle('is-en', lang === 'en');
-    btn.classList.toggle('is-ar', lang === 'ar');
-    btn.setAttribute('aria-pressed', String(lang === 'ar'));
-    btn.title = (lang === 'en') ? 'Switch to العربية' : 'التبديل إلى English';
-  }
+  updateLangToggle(lang);
 };
 
 // Apply saved language on load
