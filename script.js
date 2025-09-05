@@ -204,6 +204,7 @@ arabicBtn.addEventListener('click', () => {
   const popup = document.getElementById('lang-popup');
   const enBtn = document.getElementById('panel-en');
   const arBtn = document.getElementById('panel-ar');
+  const closeBtn = document.getElementById('langClose');
   if (!popup || !enBtn || !arBtn) return;
 
   // Helper: set lang + html attributes + header toggle reflect
@@ -228,13 +229,15 @@ arabicBtn.addEventListener('click', () => {
     }
   }
 
-  // Show language selection popup on every visit
-  document.body.style.overflow = 'hidden';
-  popup.hidden = false;
-  // trigger entry animation
-  requestAnimationFrame(() => popup.classList.add('show'));
-  // focus for a11y
-  enBtn.focus();
+  // Show language selection popup only if a language hasn't been chosen
+  if (!localStorage.getItem('lang')) {
+    document.body.style.overflow = 'hidden';
+    popup.hidden = false;
+    // trigger entry animation
+    requestAnimationFrame(() => popup.classList.add('show'));
+    // focus for a11y
+    enBtn.focus();
+  }
 
   // Fancy glow follows mouse (optional)
   function handleMove(e){
@@ -246,6 +249,7 @@ arabicBtn.addEventListener('click', () => {
   }
   enBtn.addEventListener('mousemove', handleMove);
   arBtn.addEventListener('mousemove', handleMove);
+  if (closeBtn) closeBtn.addEventListener('click', closePopup);
 
   // Choose EN
   enBtn.addEventListener('click', () => choose('en'));
@@ -269,9 +273,9 @@ arabicBtn.addEventListener('click', () => {
     document.body.style.overflow = ''; // restore scroll
   }
 
-  // Optional: ESC to close only if a language is already set (safety)
+  // Allow ESC to close regardless of language selection
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && localStorage.getItem('lang')) closePopup();
+    if (e.key === 'Escape') closePopup();
   });
 })();
 

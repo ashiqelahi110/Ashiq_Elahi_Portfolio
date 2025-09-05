@@ -783,6 +783,23 @@ body.dark .lang-toggle {
   display: block;
 }
 
+.lang-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 44px;
+  height: 44px;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+}
+
 .lang-wrap {
   position: relative;
   width: 100%;
