@@ -22,7 +22,6 @@ body.dark {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
@@ -30,6 +29,12 @@ body {
   color: var(--text);
   line-height: 1.6;
   scroll-behavior: smooth;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.arabic-text {
+  font-family: 'Amiri', serif;
+  direction: rtl;
 }
 
 a {
