@@ -259,6 +259,25 @@ a.btn, .btn {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
+/* Fallback for browsers that don't support aspect-ratio */
+@supports not (aspect-ratio: 1 / 1) {
+  .hero-image {
+    position: relative;
+    width: 100%;
+    max-width: 280px;
+    padding-top: 100%;
+    margin: 0 auto;
+  }
+
+  .hero-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
 /* ========== Sections ========== */
 .about-section,
 .skills-section {
@@ -498,6 +517,12 @@ a.btn, .btn {
 
   .hero-image img {
     max-width: 220px;
+  }
+
+  @supports not (aspect-ratio: 1 / 1) {
+    .hero-image {
+      max-width: 220px;
+    }
   }
 }
 
