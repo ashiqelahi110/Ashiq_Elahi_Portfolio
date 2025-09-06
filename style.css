@@ -52,6 +52,12 @@ a {
   text-decoration: none;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
 .container {
   width: 90%;
   max-width: 1200px;
@@ -244,8 +250,9 @@ a.btn, .btn {
 }
 
 .hero-image img {
-  width: 280px;
-  height: 280px;
+  width: 100%;
+  max-width: 280px;
+  aspect-ratio: 1/1;
   object-fit: cover;
   border-radius: 50%;
   border: 6px solid #fff;
@@ -490,8 +497,39 @@ a.btn, .btn {
   }
 
   .hero-image img {
-    width: 220px;
-    height: 220px;
+    max-width: 220px;
+  }
+}
+
+@media (max-width: 600px) {
+  .header-flex {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .nav {
+    left: 0;
+    right: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-section,
+  .experience-section,
+  .education-section,
+  .work-section,
+  .certifications-section,
+  .languages-section,
+  .contact-section {
+    padding: 40px 0;
+  }
+
+  .contact-form {
+    padding: 20px;
   }
 }
 
