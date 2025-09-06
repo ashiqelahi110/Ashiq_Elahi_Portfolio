@@ -67,12 +67,12 @@ img {
 /* Section Title */
 .section-title {
   text-align: center;
-  font-size: 32px;
+  font-size: 2rem;
   color: var(--heading);
-  margin-bottom: 45px;
+  margin-bottom: 2.8125rem;
   position: relative;
   display: inline-block;
-  padding-bottom: 10px;
+  padding-bottom: 0.625rem;
 }
 
 .section-title::after {
@@ -105,7 +105,7 @@ img {
 /* ========== Header/Navbar ========== */
 .site-header {
   background: var(--primary);
-  padding: 15px 0;
+  padding: 0.9375rem 0;
   position: sticky;
   top: 0;
   z-index: 999;
@@ -120,7 +120,7 @@ img {
 
 .logo {
   color: #fff;
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: 600;
 }
 
@@ -143,7 +143,7 @@ img {
 /* Burger Menu */
 .burger {
   display: none;
-  font-size: 24px;
+  font-size: 1.5rem;
   background: transparent;
   border: none;
   color: #fff;
@@ -162,7 +162,7 @@ img {
     position: absolute;
     top: 60px;
     right: 20px;
-    padding: 15px;
+    padding: 0.9375rem;
     border-radius: 8px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
   }
@@ -176,7 +176,7 @@ img {
 .hero {
   background: linear-gradient(135deg, var(--accent), var(--primary));
   color: #fff;
-  padding: 80px 0;
+  padding: 5rem 0;
 }
 
 .hero-content {
@@ -192,8 +192,8 @@ img {
 }
 
 .hero-text h2 {
-  font-size: 36px;
-  margin-bottom: 12px;
+  font-size: 2.25rem;
+  margin-bottom: 0.75rem;
 }
 
 #hero-name {
@@ -201,19 +201,19 @@ img {
 }
 
 .hero-text p {
-  font-size: 18px;
-  margin-bottom: 20px;
+  font-size: 1.125rem;
+  margin-bottom: 1.25rem;
 }
 
 a.btn, .btn {
   display: inline-block;
   background: #fff;
   color: var(--primary);
-  padding: 12px 28px;
+  padding: 0.75rem 1.75rem;
   border-radius: 8px;
   font-weight: 700;
-  margin-right: 10px;
-  margin-bottom: 12px;
+  margin-right: 0.625rem;
+  margin-bottom: 0.75rem;
   transition: background-color 0.3s;
 }
 
@@ -222,7 +222,7 @@ a.btn, .btn {
   animation: pulse 0.8s infinite alternate;
 }
 #Explore, #DownloadCV {
-  padding: 8px 24px;
+  padding: 0.5rem 1.5rem;
   /* উপরে–নিচে কম padding */
   border: 2px solid #000;
   /* কালো border */
@@ -262,14 +262,14 @@ a.btn, .btn {
 /* ========== Sections ========== */
 .about-section,
 .skills-section {
-  padding: 60px 0;
+  padding: 3.75rem 0;
   background: var(--bg-alt);
 }
 
 .about-section p {
   max-width: 800px;
   margin: 0 auto;
-  font-size: 18px;
+  font-size: 1.125rem;
 }
 
 .experience-section,
@@ -278,25 +278,25 @@ a.btn, .btn {
 .certifications-section,
 .languages-section,
 .contact-section {
-  padding: 60px 0;
+  padding: 3.75rem 0;
 }
 
 .experience-item,
 .education-item {
-  margin-bottom: 40px;
+  margin-bottom: 2.5rem;
 }
 
 .experience-item h3,
 .education-item h3 {
-  font-size: 20px;
-  margin-bottom: 5px;
+  font-size: 1.25rem;
+  margin-bottom: 0.3125rem;
 }
 
 .experience-item ul,
 .education-item p {
   color: var(--muted);
-  margin-left: 15px;
-  font-size: 16px;
+  margin-left: 0.9375rem;
+  font-size: 1rem;
 }
 
 .skills-list {
@@ -308,9 +308,9 @@ a.btn, .btn {
 
 .skills-list li {
   position: relative;
-  padding-left: 25px;
-  margin-bottom: 12px;
-  font-size: 16px;
+  padding-left: 1.5625rem;
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
 }
 
 .skills-list li::before {
@@ -327,7 +327,7 @@ a.btn, .btn {
   list-style: disc;
   list-style-position: inside;
   color: var(--muted);
-  font-size: 16px;
+  font-size: 1rem;
 }
 
 /* ========== Projects Cards ========== */
@@ -335,7 +335,7 @@ a.btn, .btn {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 28px;
-  padding: 0 10px;
+  padding: 0 0.625rem;
 }
 
 .card {
@@ -359,14 +359,14 @@ a.btn, .btn {
 }
 
 .card h3 {
-  font-size: 22px;
-  margin: 16px 0 8px;
+  font-size: 1.375rem;
+  margin: 1rem 0 0.5rem;
 }
 
 .card p {
   color: var(--muted);
-  margin-bottom: 16px;
-  padding: 0 12px;
+  margin-bottom: 1rem;
+  padding: 0 0.75rem;
 }
 
 /* ========== Contact & Footer ========== */
@@ -374,22 +374,22 @@ a.btn, .btn {
   max-width: 600px;
   margin: 0 auto;
   background: #fff;
-  padding: 30px;
+  padding: 1.875rem;
   border-radius: 10px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
 }
 
 .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
 }
 
 .contact-form input,
 .contact-form textarea {
   width: 100%;
-  padding: 12px 16px;
+  padding: 0.75rem 1rem;
   border: 1px solid #cbd5e1;
   border-radius: 6px;
-  font-size: 16px;
+  font-size: 1rem;
   transition: border-color 0.3s, box-shadow 0.3s;
 }
 
@@ -408,7 +408,7 @@ a.btn, .btn {
 .site-footer {
   background: #0f172a;
   color: #94a3b8;
-  padding: 40px 0;
+  padding: 2.5rem 0;
   text-align: center;
 }
 
@@ -425,12 +425,12 @@ a.btn, .btn {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  padding: 10px 14px;
+  padding: 0.625rem 0.875rem;
   background: var(--primary);
   color: white;
   border: none;
   border-radius: 50%;
-  font-size: 22px;
+  font-size: 1.375rem;
   cursor: pointer;
   display: none;
   z-index: 999;
@@ -445,9 +445,9 @@ a.btn, .btn {
 #theme-toggle {
   background: transparent;
   border: none;
-  font-size: 22px;
+  font-size: 1.375rem;
   cursor: pointer;
-  margin-left: 15px;
+  margin-left: 0.9375rem;
   color: white;
   transition: transform 0.3s;
 }
@@ -525,25 +525,25 @@ a.btn, .btn {
   .certifications-section,
   .languages-section,
   .contact-section {
-    padding: 40px 0;
+    padding: 2.5rem 0;
   }
 
   .contact-form {
-    padding: 20px;
+    padding: 1.25rem;
   }
 }
 
 @media (max-width: 480px) {
   .section-title {
-    font-size: 28px;
+    font-size: 1.75rem;
   }
 
   .hero-text h2 {
-    font-size: 28px;
+    font-size: 1.75rem;
   }
 
   .hero-text p {
-    font-size: 16px;
+    font-size: 1rem;
   }
 }
 
@@ -709,7 +709,7 @@ body.dark .contact-section {
 .cv-modal-content {
   background: #fff;
   margin: 10% auto;
-  padding: 20px;
+  padding: 1.25rem;
   border-radius: 10px;
   width: 90%;
   max-width: 400px;
@@ -718,20 +718,20 @@ body.dark .contact-section {
 }
 
 .cv-modal-content h2 {
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
 }
 
 .cv-modal-content .btn {
   display: block;
   width: 100%;
-  margin: 10px 0;
+  margin: 0.625rem 0;
 }
 
 .close-modal {
   position: absolute;
   top: 15px;
   right: 20px;
-  font-size: 28px;
+  font-size: 1.75rem;
   font-weight: bold;
   color: #333;
   cursor: pointer;
@@ -748,7 +748,7 @@ body.dark .contact-section {
   /* পিলের প্রস্থ */
   height: 36px;
   /* পিলের উচ্চতা */
-  padding: 4px;
+  padding: 0.25rem;
   border-radius: 9999px;
   border: 1px solid rgba(255, 255, 255, 0.35);
   background: rgba(255, 255, 255, 0.15);
@@ -770,7 +770,7 @@ body.dark .contact-section {
 .lang-toggle .label {
   flex: 1;
   text-align: center;
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: .5px;
   color: #eaf5ff;
@@ -853,7 +853,7 @@ html[dir="rtl"] .skills-list {
   text-align: right;
 }
 html[dir="rtl"] .skills-list li {
-  padding-right: 25px;
+  padding-right: 1.5625rem;
   padding-left: 0;
 }
 
