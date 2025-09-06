@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Ashiq Elahi's Personal Portfolio – Writer, Educator, and Developer.">
-    <meta name="author" content="Ashiq Elahi">
-    <title>Ashiq Elahi – Portfolio</title>
+    <meta name="description" content="Ashiq Elahi's Personal Portfolio — Writer, Educator, and Developer." />
+    <meta name="author" content="Ashiq Elahi" />
+    <title>Ashiq Elahi — Portfolio</title>
 
-    <!-- Favicon -->
     <link rel="icon" href="assets/Favicon.png" type="image/png" />
     <link rel="stylesheet" href="style.css" />
     <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600&display=swap" rel="stylesheet" />
@@ -16,7 +14,6 @@
 </head>
 
 <body>
-
     <!-- Scroll Progress Bar -->
     <div id="scroll-progress"></div>
 
@@ -24,7 +21,7 @@
     <header class="site-header fade-in">
         <div class="container header-flex">
             <h1 class="logo">Ashiq Elahi</h1>
-            <nav class="nav" id="navbar">
+            <nav class="nav" id="navbar" aria-label="Primary" aria-hidden="true" tabindex="-1">
                 <a href="#home" data-i18n="nav.home">Home</a>
                 <a href="#about" data-i18n="nav.about">About</a>
                 <a href="#experience" data-i18n="nav.experience">Experience</a>
@@ -35,18 +32,15 @@
                 <a href="#works" data-i18n="nav.works">Projects</a>
                 <a href="#contact" data-i18n="nav.contact">Contact</a>
             </nav>
-            <button class="burger" id="burger" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+            <button class="burger" id="burger" aria-label="Toggle navigation" aria-controls="navbar" aria-expanded="false">&#9776;</button>
             <button id="theme-toggle" title="Toggle Theme">🌙</button>
-
-<!-- index.html → header .header-flex এর ভিতরে, #theme-toggle এর পরে এইটা বসান -->
-<button id="lang-toggle" class="lang-toggle is-en" type="button" aria-pressed="false" aria-label="Switch language"
-    title="Switch to العربية">
-    <span class="label en">EN</span>
-    <span class="thumb" aria-hidden="true"></span>
-    <span class="label ar">AR</span>
-</button>
-
+            <button id="lang-toggle" class="lang-toggle is-en" type="button" aria-pressed="false" aria-label="Switch language" title="Switch language">
+                <span class="label en">EN</span>
+                <span class="thumb" aria-hidden="true"></span>
+                <span class="label ar">AR</span>
+            </button>
         </div>
+        <div id="navOverlay" class="nav-overlay" hidden></div>
     </header>
 
     <!-- Hero Section -->
@@ -59,7 +53,7 @@
                 </h2>
                 <p><span id="typed-text"></span></p>
                 <a href="#works" class="btn" id="Explore" data-i18n="btn.explore">Explore My Work</a>
-            <button id="downloadCV" class="btn" data-i18n="btn.downloadCv">Download CV</button>
+                <button id="downloadCV" class="btn" data-i18n="btn.downloadCv">Download CV</button>
             </div>
             <div class="hero-image slide-in-right">
                 <img src="assets/resize.JPG" alt="Ashiq Elahi" />
@@ -75,145 +69,140 @@
                 I am <strong>Ashiq Elahi</strong>, IT-skilled professional with strong expertise in Microsoft Office, AI tools, and WordPress, along with basic knowledge
                 of HTML & CSS. Experienced in digital content development, financial record management, and online education support.
                 Proven ability to integrate technology into academic and organizational workflows. Seeking to contribute technical,
-                administrative, and creative skills to a progressive organization in the Middle East
+                administrative, and creative skills to a progressive organization in the Middle East.
             </p>
         </div>
     </section>
 
-<!-- Experience -->
-<section class="experience-section fade-in" id="experience">
-    <div class="container">
-        <h2 class="section-title" data-i18n="section.experience">Experience</h2>
+    <!-- Experience -->
+    <section class="experience-section fade-in" id="experience">
+        <div class="container">
+            <h2 class="section-title" data-i18n="section.experience">Experience</h2>
 
-        <div class="experience-item slide-in-left">
-            <h3 data-i18n="exp1.title">IT & Digital Services – Talimul Quran Was Sunnah Internet Madrasa</h3>
-            <p data-i18n="exp1.duration"><strong>Duration:</strong> Aug 2025 – Present</p>
-            <ul>
-                <li data-i18n="exp1.li1">Managing financial records, student data, and official reports using Microsoft Excel & Word.</li>
-                <li data-i18n="exp1.li2">Preparing and maintaining accounts, budgets, and digital databases.</li>
-                <li data-i18n="exp1.li3">Using AI tools for content creation, automation, and productivity.</li>
-                <li data-i18n="exp1.li4">Designing and publishing online learning materials.</li>
-                <li data-i18n="exp1.li5">Managing and developing WordPress-based educational website.</li>
-                <li data-i18n="exp1.li6">Providing IT and digital support for teachers and students.</li>
+            <div class="experience-item slide-in-left">
+                <h3 data-i18n="exp1.title">IT & Digital Services – Talimul Quran Was Sunnah Internet Madrasa</h3>
+                <p data-i18n="exp1.duration"><strong>Duration:</strong> Aug 2025 – Present</p>
+                <ul>
+                    <li data-i18n="exp1.li1">Managing financial records, student data, and official reports using Microsoft Excel & Word.</li>
+                    <li data-i18n="exp1.li2">Preparing and maintaining accounts, budgets, and digital databases.</li>
+                    <li data-i18n="exp1.li3">Using AI tools for content creation, automation, and productivity.</li>
+                    <li data-i18n="exp1.li4">Designing and publishing online learning materials.</li>
+                    <li data-i18n="exp1.li5">Managing and developing WordPress-based educational website.</li>
+                    <li data-i18n="exp1.li6">Providing IT and digital support for teachers and students.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item slide-in-right">
+                <h3 data-i18n="exp2.title">Writer – Maktabatul Akbar, Dhaka</h3>
+                <p data-i18n="exp2.duration"><strong>Duration:</strong> Jan 2025 – Jul 2025</p>
+                <ul>
+                    <li data-i18n="exp2.li1">Wrote, edited, and translated Islamic books/articles (Bangla, Arabic, English).</li>
+                    <li data-i18n="exp2.li2">Formatted manuscripts using Microsoft Word & AI tools.</li>
+                    <li data-i18n="exp2.li3">Collaborated with scholars to ensure authentic and accurate publications.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item slide-in-left">
+                <h3 data-i18n="exp3.title">Teaching & Administrative Service – Madrasah, Marisha</h3>
+                <p data-i18n="exp3.duration"><strong>Duration:</strong> Jan 2024 – Dec 2024</p>
+                <ul>
+                    <li data-i18n="exp3.li1">Taught Islamic studies and general subjects.</li>
+                    <li data-i18n="exp3.li2">Maintained digital academic records for 500+ students using MS Excel.</li>
+                    <li data-i18n="exp3.li3">Prepared official documents and reports using Microsoft Office.</li>
+                    <li data-i18n="exp3.li4">Assisted in administration and student guidance.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education -->
+    <section class="education-section fade-in" id="education">
+        <div class="container">
+            <h2 class="section-title" data-i18n="section.education">Education</h2>
+
+            <div class="education-item slide-in-left">
+                <h3 data-i18n="edu1.title">Takmil (Dawrah-e-Hadith)</h3>
+                <p data-i18n="edu1.institute"><strong>Institute:</strong> Jamia Islamia Darul Ulum Madania, Dhaka</p>
+                <p data-i18n="edu1.year"><strong>Year:</strong> 2024</p>
+                <p data-i18n="edu1.grade"><strong>Grade:</strong> Jayyid Jiddan | GPA: 78%</p>
+            </div>
+
+            <div class="education-item slide-in-right">
+                <h3 data-i18n="edu2.title">Fojilot</h3>
+                <p data-i18n="edu2.institute"><strong>Institute:</strong> Jamia Islamia Darul Ulum Madania, Dhaka</p>
+                <p data-i18n="edu2.year"><strong>Year:</strong> 2023</p>
+                <p data-i18n="edu2.grade"><strong>Grade:</strong> Jayyid Jiddan | GPA: 78%</p>
+            </div>
+
+            <div class="education-item slide-in-left">
+                <h3 data-i18n="edu3.title">Sanabiya Ulya</h3>
+                <p data-i18n="edu3.institute"><strong>Institute:</strong> Jamia Islamia Darul Ulum Dilu Road, Dhaka</p>
+                <p data-i18n="edu3.year"><strong>Year:</strong> 2022</p>
+                <p data-i18n="edu3.grade"><strong>Grade:</strong> Mumtaz (42nd Position) | GPA: 91%</p>
+            </div>
+
+            <div class="education-item slide-in-right">
+                <h3 data-i18n="edu4.title">Primary</h3>
+                <p data-i18n="edu4.institute"><strong>Institute:</strong> Jamia Islamia Darul Ulum Baitun Noor, Dhaka</p>
+                <p data-i18n="edu4.year"><strong>Year:</strong> 2018</p>
+                <p data-i18n="edu4.grade"><strong>Grade:</strong> Mumtaz (47th Position) | GPA: 91%</p>
+            </div>
+
+            <div class="education-item slide-in-left">
+                <h3 data-i18n="edu5.title">Hifzul Qur'an</h3>
+                <p data-i18n="edu5.institute"><strong>Institute:</strong> Jamia Islamia Darul Ulum Madania, Dhaka</p>
+                <p data-i18n="edu5.year"><strong>Year:</strong> 2015</p>
+            </div>
+
+            <div class="education-item slide-in-right">
+                <h3 data-i18n="edu6.title">SSC</h3>
+                <p data-i18n="edu6.institute"><strong>Institute:</strong> Joynal Abaden Alim Madrasah – Bhola</p>
+                <p data-i18n="edu6.gpa"><strong>GPA:</strong> 4.31</p>
+                <p data-i18n="edu6.year"><strong>Year:</strong> 2025</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="skills-section fade-in" id="skills">
+        <div class="container">
+            <h2 class="section-title" data-i18n="section.skills">Skills</h2>
+            <ul class="skills-list slide-in-left">
+                <li data-i18n="skill.li1">Microsoft Word, Excel & PowerPoint (Advanced)</li>
+                <li data-i18n="skill.li2">AI Tools (Content Creation & Automation)</li>
+                <li data-i18n="skill.li3">WordPress Website Management</li>
+                <li data-i18n="skill.li4">Basic HTML & CSS</li>
+                <li data-i18n="skill.li5">Typing: Bangla, English, Arabic</li>
+                <li data-i18n="skill.li6">Basic Adobe Photoshop & Illustrator</li>
             </ul>
         </div>
+    </section>
 
-        <div class="experience-item slide-in-right">
-            <h3 data-i18n="exp2.title">Writer – Maktabatul Akbar, Dhaka</h3>
-            <p data-i18n="exp2.duration"><strong>Duration:</strong> Jan 2025 – Jul 2025</p>
-            <ul>
-                <li data-i18n="exp2.li1">Wrote, edited, and translated Islamic books/articles (Bangla, Arabic, English).</li>
-                <li data-i18n="exp2.li2">Formatted manuscripts using Microsoft Word & AI tools.</li>
-                <li data-i18n="exp2.li3">Collaborated with scholars to ensure authentic and accurate publications.</li>
+    <!-- Certifications -->
+    <section class="certifications-section fade-in" id="certifications">
+        <div class="container">
+            <h2 class="section-title" data-i18n="section.certs">Certifications & Training</h2>
+            <ul class="certifications-list slide-in-right">
+                <li data-i18n="cert.li1">Small Business Management – As-Sunnah Skill Development Institute</li>
+                <li data-i18n="cert.li2">Public Speaking & Communication Skills Workshops</li>
+                <li data-i18n="cert.li3">Corporate Manners & Career Consultation</li>
             </ul>
         </div>
+    </section>
 
-        <div class="experience-item slide-in-left">
-            <h3 data-i18n="exp3.title">Teaching & Administrative Service – Madrasah, Marisha</h3>
-            <p data-i18n="exp3.duration"><strong>Duration:</strong> Jan 2024 – Dec 2024</p>
-            <ul>
-                <li data-i18n="exp3.li1">Taught Islamic studies and general subjects.</li>
-                <li data-i18n="exp3.li2">Maintained digital academic records for 500+ students using MS Excel.</li>
-                <li data-i18n="exp3.li3">Prepared official documents and reports using Microsoft Office.</li>
-                <li data-i18n="exp3.li4">Assisted in administration and student guidance.</li>
+    <!-- Languages -->
+    <section class="languages-section fade-in" id="languages">
+        <div class="container">
+            <h2 class="section-title" data-i18n="section.languages">Languages</h2>
+            <ul class="languages-list slide-in-left">
+                <li data-i18n="lang.li1">Bangla — Native or Bilingual</li>
+                <li data-i18n="lang.li2">Arabic — Professional Working</li>
+                <li data-i18n="lang.li3">English — Professional Working</li>
+                <li data-i18n="lang.li4">Urdu — Full Professional</li>
+                <li data-i18n="lang.li5">Hindi — Full Professional</li>
             </ul>
         </div>
-    </div>
-</section>
-
-
-<!-- Education -->
-<section class="education-section fade-in" id="education">
-    <div class="container">
-        <h2 class="section-title" data-i18n="section.education">Education</h2>
-
-        <div class="education-item slide-in-left">
-            <h3 data-i18n="edu1.title">Takmil (Dawrah-e-Hadith)</h3>
-            <p data-i18n="edu1.institute"><strong>Institute:</strong> Jamia Islamia Darul Ulum Madania, Dhaka</p>
-            <p data-i18n="edu1.year"><strong>Year:</strong> 2024</p>
-            <p data-i18n="edu1.grade"><strong>Grade:</strong> Jayyid Jiddan | GPA: 78%</p>
-        </div>
-
-        <div class="education-item slide-in-right">
-            <h3 data-i18n="edu2.title">Fojilot</h3>
-            <p data-i18n="edu2.institute"><strong>Institute:</strong> Jamia Islamia Darul Ulum Madania, Dhaka</p>
-            <p data-i18n="edu2.year"><strong>Year:</strong> 2023</p>
-            <p data-i18n="edu2.grade"><strong>Grade:</strong> Jayyid Jiddan | GPA: 78%</p>
-        </div>
-
-        <div class="education-item slide-in-left">
-            <h3 data-i18n="edu3.title">Sanabiya Ulya</h3>
-            <p data-i18n="edu3.institute"><strong>Institute:</strong> Jamia Islamia Darul Ulum Dilu Road, Dhaka</p>
-            <p data-i18n="edu3.year"><strong>Year:</strong> 2022</p>
-            <p data-i18n="edu3.grade"><strong>Grade:</strong> Mumtaz (42nd Position) | GPA: 91%</p>
-        </div>
-
-        <div class="education-item slide-in-right">
-            <h3 data-i18n="edu4.title">Primary</h3>
-            <p data-i18n="edu4.institute"><strong>Institute:</strong> Jamia Islamia Darul Ulum Baitun Noor, Dhaka</p>
-            <p data-i18n="edu4.year"><strong>Year:</strong> 2018</p>
-            <p data-i18n="edu4.grade"><strong>Grade:</strong> Mumtaz (47th Position) | GPA: 91%</p>
-        </div>
-
-        <div class="education-item slide-in-left">
-            <h3 data-i18n="edu5.title">Hifzul Qur'an</h3>
-            <p data-i18n="edu5.institute"><strong>Institute:</strong> Jamia Islamia Darul Ulum Madania, Dhaka</p>
-            <p data-i18n="edu5.year"><strong>Year:</strong> 2015</p>
-        </div>
-
-        <div class="education-item slide-in-right">
-            <h3 data-i18n="edu6.title">SSC</h3>
-            <p data-i18n="edu6.institute"><strong>Institute:</strong> Joynal Abaden Alim Madrasah – Bhola</p>
-            <p data-i18n="edu6.gpa"><strong>GPA:</strong> 4.31</p>
-            <p data-i18n="edu6.year"><strong>Year:</strong> 2025</p>
-        </div>
-    </div>
-</section>
-
-
-<!-- Skills -->
-<section class="skills-section fade-in" id="skills">
-    <div class="container">
-        <h2 class="section-title" data-i18n="section.skills">Skills</h2>
-        <ul class="skills-list slide-in-left">
-            <li data-i18n="skill.li1">✔️ Microsoft Word, Excel & PowerPoint (Advanced)</li>
-            <li data-i18n="skill.li2">✔️ AI Tools (Content Creation & Automation)</li>
-            <li data-i18n="skill.li3">✔️ WordPress Website Management</li>
-            <li data-i18n="skill.li4">✔️ Basic HTML & CSS</li>
-            <li data-i18n="skill.li5">✔️ Typing: Bangla, English, Arabic</li>
-            <li data-i18n="skill.li6">✔️ Basic Adobe Photoshop & Illustrator</li>
-        </ul>
-    </div>
-</section>
-
-
-<!-- Certifications -->
-<section class="certifications-section fade-in" id="certifications">
-    <div class="container">
-        <h2 class="section-title" data-i18n="section.certs">Certifications & Training</h2>
-        <ul class="certifications-list slide-in-right">
-            <li data-i18n="cert.li1">📌 Small Business Management – As-Sunnah Skill Development Institute</li>
-            <li data-i18n="cert.li2">📌 Public Speaking & Communication Skills Workshops</li>
-            <li data-i18n="cert.li3">📌 Corporate Manners & Career Consultation</li>
-        </ul>
-    </div>
-</section>
-
-
-<!-- Languages -->
-<section class="languages-section fade-in" id="languages">
-    <div class="container">
-        <h2 class="section-title" data-i18n="section.languages">Languages</h2>
-        <ul class="languages-list slide-in-left">
-            <li data-i18n="lang.li1">🇧🇩 Bangla – Native or Bilingual</li>
-            <li data-i18n="lang.li2">🇸🇦 Arabic – Professional Working</li>
-            <li data-i18n="lang.li3">🇬🇧 English – Professional Working</li>
-            <li data-i18n="lang.li4">🇵🇰 Urdu – Full Professional</li>
-            <li data-i18n="lang.li5">🇮🇳 Hindi – Full Professional</li>
-        </ul>
-    </div>
-</section>
-
+    </section>
 
     <!-- Projects -->
     <section class="work-section fade-in" id="works">
@@ -221,41 +210,41 @@
             <h2 class="section-title" data-i18n="section.projects">My Projects</h2>
             <div class="card-grid">
                 <div class="card slide-in-left">
-                    <img src="assets/Quran.jpg" alt="Qur'an Tilawat" loading="lazy" />
+                    <img src="assets/Quran.jpg" alt="Qur'an Tilawat" loading="lazy" decoding="async" />
                     <h3 data-i18n="card.quran.title">Qur'an Tilawat</h3>
                     <p data-i18n="card.quran.desc">Listen to beautiful and soulful recitations.</p>
                     <a href="#" class="btn" data-i18n="btn.listen">Listen Now</a>
                 </div>
                 <div class="card slide-in-right">
-                    <img src="assets/hadis.jpg" alt="Hadith" loading="lazy" />
+                    <img src="assets/hadis.jpg" alt="Hadith" loading="lazy" decoding="async" />
                     <h3 data-i18n="card.hadith.title">Hadith Collection</h3>
                     <p data-i18n="card.hadith.desc">Selected Hadiths with Bangla translation and explanation.</p>
                     <a href="#" class="btn" data-i18n="btn.exploreGeneric">Explore</a>
                 </div>
                 <div class="card slide-in-left">
-                    <img src="assets/dua.jpg" alt="Dua" loading="lazy" />
+                    <img src="assets/dua.jpg" alt="Dua" loading="lazy" decoding="async" />
                     <h3 data-i18n="card.dua.title">Daily Du'as</h3>
                     <p data-i18n="card.dua.desc">Important daily prayers with translation.</p>
                     <a href="#" class="btn" data-i18n="btn.learn">Learn More</a>
                 </div>
                 <div class="card slide-in-right">
-                    <img src="assets/html_code.png" alt="Coding Projects" loading="lazy" />
+                    <img src="assets/html_code.png" alt="Coding Projects" loading="lazy" decoding="async" />
                     <h3 data-i18n="card.web.title">Web Projects</h3>
                     <p data-i18n="card.web.desc">Modern, responsive websites using HTML & CSS.</p>
                     <a href="#" class="btn" data-i18n="btn.viewProjects">View Projects</a>
                 </div>
                 <div class="card slide-in-left">
-                    <img src="assets/poster.png" alt="Poster Design" loading="lazy" />
+                    <img src="assets/poster.png" alt="Poster Design" loading="lazy" decoding="async" />
                     <h3 data-i18n="card.poster.title">Poster Designs</h3>
                     <p data-i18n="card.poster.desc">Islamic poster design using Illustrator & Photoshop.</p>
                     <a href="#" class="btn" data-i18n="btn.viewDesigns">View Designs</a>
                 </div>
-                        <div class="card slide-in-left">
-                            <img src="assets/data_managment.jpg" alt="Data Management" loading="lazy" />
-                            <h3 data-i18n="card.data.title">Data Management</h3>
-                            <p style="text-align: justify;" data-i18n="card.data.desc">Managed academic, financial, and student data with digital accuracy.</p>
-                            <a href="#" class="btn" data-i18n="btn.dataDetails">See Details</a>
-                        </div>
+                <div class="card slide-in-left">
+                    <img src="assets/data_managment.jpg" alt="Data Management" loading="lazy" decoding="async" />
+                    <h3 data-i18n="card.data.title">Data Management</h3>
+                    <p style="text-align: justify;" data-i18n="card.data.desc">Managed academic, financial, and student data with digital accuracy.</p>
+                    <a href="#" class="btn" data-i18n="btn.dataDetails">See Details</a>
+                </div>
             </div>
         </div>
     </section>
@@ -263,48 +252,39 @@
     <!-- Contact -->
     <section class="contact-section fade-in" id="contact">
         <div class="container">
-            <h2 class="section-title" data-i18n="section.contact">Contact Me</h2>
-            <form class="contact-form slide-in-left" action="https://formsubmit.co/ashiqelahi110@gmail.com"
-                method="POST">
-
-                <!-- OPTIONAL: Name Field -->
+            <h2 id="contact-title" class="section-title" data-i18n="section.contact">Contact Me</h2>
+            <form class="contact-form slide-in-left" action="https://formsubmit.co/ashiqelahi110@gmail.com" method="POST" aria-labelledby="contact-title">
                 <div class="form-group">
                     <label for="contact-name" data-i18n="contact.name">Your Name</label>
-                    <input id="contact-name" type="text" name="name" placeholder="Your Name" data-i18n="contact.name" data-i18n-attr="placeholder" required>
+                    <input id="contact-name" type="text" name="name" autocomplete="name" placeholder="Your Name" data-i18n="contact.name" data-i18n-attr="placeholder" required />
                 </div>
-
-                <!-- OPTIONAL: Email Field -->
                 <div class="form-group">
                     <label for="email" data-i18n="contact.email">Your Email</label>
-                    <input id="email" type="email" name="email" placeholder="Your Email" data-i18n="contact.email" data-i18n-attr="placeholder" required>
+                    <input id="email" type="email" name="email" autocomplete="email" inputmode="email" placeholder="Your Email" data-i18n="contact.email" data-i18n-attr="placeholder" required />
                 </div>
-
-                <!-- OPTIONAL: Message Field -->
                 <div class="form-group">
                     <label for="message" data-i18n="contact.message">Your Message</label>
-                    <textarea id="message" name="message" rows="5" placeholder="Your Message" data-i18n="contact.message" data-i18n-attr="placeholder" required></textarea>
+                    <textarea id="message" name="message" rows="5" autocomplete="off" placeholder="Your Message" data-i18n="contact.message" data-i18n-attr="placeholder" required></textarea>
                 </div>
 
-                <!-- Hidden Input (optional but recommended) -->
-                <input type="hidden" name="_captcha" value="false">
-               <input type="hidden" name="_next" value="./thankyou.html">
+                <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_next" value="./thankyou.html" />
                 <button type="submit" class="btn" data-i18n="btn.sendMessage">Send Message</button>
             </form>
         </div>
     </section>
 
-
     <!-- Back to Top Button -->
-    <button id="backToTop" title="Go to top">↑</button>
+    <button id="backToTop" title="Go to top" aria-label="Back to top">?</button>
 
     <!-- Footer -->
     <footer class="site-footer fade-in">
         <div class="container">
-        <p>
-            <span data-i18n="footer.copy">© 2025 Ashiq Elahi. All rights reserved. | Email:</span>
-            <a href="mailto:ashiqelahi110@gmail.com">ashiqelahi110@gmail.com</a>
-        </p>
-
+            <p>
+                <span data-i18n="footer.copy">© 2025 Ashiq Elahi. All rights reserved. | Email:</span>
+                <a href="mailto:ashiqelahi110@gmail.com">ashiqelahi110@gmail.com</a>
+            </p>
         </div>
     </footer>
 
@@ -318,10 +298,9 @@
         </div>
     </div>
 
-
     <!-- Script -->
     <script src="script.js"></script>
 </body>
-
 </html>
+
 
