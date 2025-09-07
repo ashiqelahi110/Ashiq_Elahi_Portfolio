@@ -361,7 +361,28 @@ try { updateFooterCopyYear(); } catch (e) {}
 (() => {
   const btn = document.getElementById('theme-toggle');
   if (!btn) return;
-  const fixIcon = () => { btn.textContent = document.body.classList.contains('dark') ? 'Sun' : 'Moon'; };
-  fixIcon();
-  btn.addEventListener('click', () => setTimeout(fixIcon, 0));
+  // Build pill UI with icons and keep it intact
+  const build = () => {
+    btn.classList.add('theme-toggle');
+    if (!btn.querySelector('.toggle-track')) {
+      btn.innerHTML = `
+        <span class="toggle-track">
+          <span class="toggle-label light">LIGHT MODE</span>
+          <span class="toggle-label dark">DARK MODE</span>
+          <span class="toggle-thumb" aria-hidden="true">
+            <span class="icon sun">☀</span>
+            <span class="icon moon">🌙</span>
+          </span>
+        </span>`;
+    }
+    const isDark = document.body.classList.contains('dark');
+    btn.setAttribute('aria-pressed', String(isDark));
+    btn.title = isDark ? 'Switch to light mode' : 'Switch to dark mode';
+  };
+  build();
+
+  // Ensure our UI wins over any legacy text updates
+  btn.addEventListener('click', () => setTimeout(build, 0));
+  const mo = new MutationObserver(() => build());
+  mo.observe(btn, { childList: true, characterData: true, subtree: true });
 })();
