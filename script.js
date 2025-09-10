@@ -5,45 +5,48 @@ if (savedTheme === 'dark') {
 }
 
 // ===== Typing Effect (multilingual) =====
-let TYPED_TIMER = null;
-let TYPED_INDEX = 0;
-let TYPED_WORD_INDEX = 0;
-let TYPED_WORDS = ["ISLAMIC SCHOLAR", "EDUCATOR", "WRITER", "IT-SKILLED", "DEVELOPER"];
+(() => {
+  let typedTimer = null;
+  let typedIndex = 0;
+  let typedWordIndex = 0;
+  let typedWords = ["ISLAMIC SCHOLAR", "EDUCATOR", "WRITER", "IT-SKILLED", "DEVELOPER"];
 
-function startTyping() {
-  const el = document.getElementById('typed-text');
-  if (!el) return;
-  const current = TYPED_WORDS[TYPED_WORD_INDEX] || '';
-  const partial = current.slice(0, ++TYPED_INDEX);
-  el.textContent = partial;
+  function startTyping() {
+    const el = document.getElementById('typed-text');
+    if (!el) return;
+    const current = typedWords[typedWordIndex] || '';
+    const partial = current.slice(0, ++typedIndex);
+    el.textContent = partial;
 
-  if (partial.length === current.length) {
-    TYPED_WORD_INDEX = (TYPED_WORD_INDEX + 1) % TYPED_WORDS.length;
-    TYPED_INDEX = 0;
-    TYPED_TIMER = setTimeout(startTyping, 1500);
-  } else {
-    TYPED_TIMER = setTimeout(startTyping, 100);
+    if (partial.length === current.length) {
+      typedWordIndex = (typedWordIndex + 1) % typedWords.length;
+      typedIndex = 0;
+      typedTimer = setTimeout(startTyping, 1500);
+    } else {
+      typedTimer = setTimeout(startTyping, 100);
+    }
   }
-}
 
-function stopTyping() {
-  if (TYPED_TIMER) {
-    clearTimeout(TYPED_TIMER);
-    TYPED_TIMER = null;
+  function stopTyping() {
+    if (typedTimer) {
+      clearTimeout(typedTimer);
+      typedTimer = null;
+    }
   }
-}
 
-function initTypingForLang(lang) {
-  stopTyping();
-  if (lang === 'ar') {
-    TYPED_WORDS = ["باحث شرعي", "معلّم", "كاتب", "مختص تقني", "مطور"];
-  } else {
-    TYPED_WORDS = ["ISLAMIC SCHOLAR", "EDUCATOR", "WRITER", "IT-SKILLED", "DEVELOPER"];
+  function initTypingForLang(lang) {
+    stopTyping();
+    typedWords =
+      lang === 'ar'
+        ? ["باحث شرعي", "معلّم", "كاتب", "مختص تقني", "مطور"]
+        : ["ISLAMIC SCHOLAR", "EDUCATOR", "WRITER", "IT-SKILLED", "DEVELOPER"];
+    typedIndex = 0;
+    typedWordIndex = 0;
+    startTyping();
   }
-  TYPED_INDEX = 0;
-  TYPED_WORD_INDEX = 0;
-  startTyping();
-}
+
+  window.initTypingForLang = initTypingForLang;
+})();
 
 // ========= Theme Toggle =========
 const toggleBtn = document.getElementById('theme-toggle');
