@@ -1,0 +1,29 @@
+/* Minimal overrides and mobile overflow fix */
+body {
+  overflow-x: hidden; /* avoid horizontal scroll without affecting sticky */
+}
+
+/* Ensure header remains sticky across browsers */
+.site-header {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Do not animate header with fade-in; it breaks sticky */
+.site-header.fade-in { opacity: 1 !important; transform: none !important; }
+
+/* Ensure media never overflows */
+img, video, canvas, svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Replace garbled custom bullet with a clean glyph */
+.skills-list li::before { content: "\2022" !important; }
+
+/* Very small screens: allow header to wrap to avoid horizontal scroll */
+@media (max-width: 360px) {
+  .header-flex { flex-wrap: wrap; gap: 8px; }
+}

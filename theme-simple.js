@@ -25,3 +25,13 @@
   btn.replaceWith(simple);
 })();
 
+// Ensure correct icons regardless of legacy text
+(function () {
+  const btn = document.getElementById('theme-toggle');
+  if (!btn) return;
+  const setIcon = () => {
+    btn.textContent = document.body.classList.contains('dark') ? '☀' : '🌙';
+  };
+  setIcon();
+  btn.addEventListener('click', setIcon);
+})();

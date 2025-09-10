@@ -84,5 +84,13 @@
       document.body.classList.add('dark');
     }
   </script>
+  <script>
+    (function(){
+      try { document.title = 'Thank You — Message Sent'; } catch(_) {}
+      try { var h=document.querySelector('h1'); if(h) h.textContent = 'Thank You!'; } catch(_) {}
+      try { var p=document.querySelector('p'); if(p) p.innerHTML = 'Your message has been sent successfully.<br>I\'ll get back to you as soon as possible, in shaa Allah.'; } catch(_) {}
+      try { var a=document.querySelector('a.btn'); if(a) a.textContent = '← Go Back to Portfolio'; } catch(_) {}
+    })();
+  </script>
 </body>
 </html>

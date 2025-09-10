@@ -5,48 +5,45 @@ if (savedTheme === 'dark') {
 }
 
 // ===== Typing Effect (multilingual) =====
-(() => {
-  let typedTimer = null;
-  let typedIndex = 0;
-  let typedWordIndex = 0;
-  let typedWords = ["ISLAMIC SCHOLAR", "EDUCATOR", "WRITER", "IT-SKILLED", "DEVELOPER"];
+let TYPED_TIMER = null;
+let TYPED_INDEX = 0;
+let TYPED_WORD_INDEX = 0;
+let TYPED_WORDS = ["ISLAMIC SCHOLAR", "EDUCATOR", "WRITER", "IT-SKILLED", "DEVELOPER"];
 
-  function startTyping() {
-    const el = document.getElementById('typed-text');
-    if (!el) return;
-    const current = typedWords[typedWordIndex] || '';
-    const partial = current.slice(0, ++typedIndex);
-    el.textContent = partial;
+function startTyping() {
+  const el = document.getElementById('typed-text');
+  if (!el) return;
+  const current = TYPED_WORDS[TYPED_WORD_INDEX] || '';
+  const partial = current.slice(0, ++TYPED_INDEX);
+  el.textContent = partial;
 
-    if (partial.length === current.length) {
-      typedWordIndex = (typedWordIndex + 1) % typedWords.length;
-      typedIndex = 0;
-      typedTimer = setTimeout(startTyping, 1500);
-    } else {
-      typedTimer = setTimeout(startTyping, 100);
-    }
+  if (partial.length === current.length) {
+    TYPED_WORD_INDEX = (TYPED_WORD_INDEX + 1) % TYPED_WORDS.length;
+    TYPED_INDEX = 0;
+    TYPED_TIMER = setTimeout(startTyping, 1500);
+  } else {
+    TYPED_TIMER = setTimeout(startTyping, 100);
   }
+}
 
-  function stopTyping() {
-    if (typedTimer) {
-      clearTimeout(typedTimer);
-      typedTimer = null;
-    }
+function stopTyping() {
+  if (TYPED_TIMER) {
+    clearTimeout(TYPED_TIMER);
+    TYPED_TIMER = null;
   }
+}
 
-  function initTypingForLang(lang) {
-    stopTyping();
-    typedWords =
-      lang === 'ar'
-        ? ["باحث شرعي", "معلّم", "كاتب", "مختص تقني", "مطور"]
-        : ["ISLAMIC SCHOLAR", "EDUCATOR", "WRITER", "IT-SKILLED", "DEVELOPER"];
-    typedIndex = 0;
-    typedWordIndex = 0;
-    startTyping();
+function initTypingForLang(lang) {
+  stopTyping();
+  if (lang === 'ar') {
+    TYPED_WORDS = ["باحث شرعي", "معلّم", "كاتب", "مختص تقني", "مطور"];
+  } else {
+    TYPED_WORDS = ["ISLAMIC SCHOLAR", "EDUCATOR", "WRITER", "IT-SKILLED", "DEVELOPER"];
   }
-
-  window.initTypingForLang = initTypingForLang;
-})();
+  TYPED_INDEX = 0;
+  TYPED_WORD_INDEX = 0;
+  startTyping();
+}
 
 // ========= Theme Toggle =========
 const toggleBtn = document.getElementById('theme-toggle');
@@ -196,76 +193,32 @@ if (backToTop) {
   const englishBtn = document.getElementById('downloadEnglish');
   const arabicBtn = document.getElementById('downloadArabic');
 
-  let prevFocus = null;
-
   if (!(cvModal && downloadBtn && closeBtn && englishBtn && arabicBtn)) {
     return;
   }
 
-  const focusableSelectors = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
-  const getFocusable = () => cvModal.querySelectorAll(focusableSelectors);
-
-  function openModal() {
-    prevFocus = document.activeElement;
-    cvModal.style.display = 'block';
-    cvModal.setAttribute('aria-hidden', 'false');
-    const focusables = getFocusable();
-    if (focusables.length > 0) {
-      focusables[0].focus();
-    }
-  }
-
-  function closeModal() {
-    cvModal.style.display = 'none';
-    cvModal.setAttribute('aria-hidden', 'true');
-    if (prevFocus && typeof prevFocus.focus === 'function') {
-      prevFocus.focus();
-    }
-  }
-
   downloadBtn.addEventListener('click', () => {
-    openModal();
+    cvModal.style.display = 'block';
   });
 
   closeBtn.addEventListener('click', () => {
-    closeModal();
+    cvModal.style.display = 'none';
   });
 
   window.addEventListener('click', (e) => {
     if (e.target === cvModal) {
-      closeModal();
-    }
-  });
-
-  document.addEventListener('keydown', (e) => {
-    if (cvModal.style.display === 'block') {
-      if (e.key === 'Escape') {
-        e.preventDefault();
-        closeModal();
-      } else if (e.key === 'Tab') {
-        const focusables = getFocusable();
-        if (focusables.length === 0) return;
-        const firstEl = focusables[0];
-        const lastEl = focusables[focusables.length - 1];
-        if (e.shiftKey && document.activeElement === firstEl) {
-          e.preventDefault();
-          lastEl.focus();
-        } else if (!e.shiftKey && document.activeElement === lastEl) {
-          e.preventDefault();
-          firstEl.focus();
-        }
-      }
+      cvModal.style.display = 'none';
     }
   });
 
   englishBtn.addEventListener('click', () => {
     window.location.href = 'assets/Ashiq_Elahi_CV_IT_and_Digital_Services_Professional.pdf';
-    closeModal();
+    cvModal.style.display = 'none';
   });
 
   arabicBtn.addEventListener('click', () => {
     window.location.href = 'assets/Arabic_Ashiq_Elahi_CV_IT_and_Digital_Services_Professional.pdf';
-    closeModal();
+    cvModal.style.display = 'none';
   });
 })();
 
@@ -432,4 +385,67 @@ try { updateFooterCopyYear(); } catch (e) {}
   btn.addEventListener('click', () => setTimeout(build, 0));
   const mo = new MutationObserver(() => build());
   mo.observe(btn, { childList: true, characterData: true, subtree: true });
+})();
+
+// ===== Post-load Overrides: sanitize text, icons, language handling =====
+(() => {
+  // Fix garbled meta/title/back-to-top
+  try {
+    const md = document.querySelector('meta[name="description"]');
+    if (md && /\uFFFD/.test(md.getAttribute('content') || '')) {
+      md.setAttribute('content', "Ashiq Elahi's Personal Portfolio — Writer, Educator, and Developer.");
+    }
+    if (/\uFFFD/.test(document.title)) {
+      document.title = 'Ashiq Elahi — Portfolio';
+    }
+    const bt = document.getElementById('backToTop');
+    if (bt && bt.textContent && /\uFFFD/.test(bt.textContent)) {
+      bt.textContent = '↑';
+    }
+  } catch (_) {}
+
+  // Redefine typing words with clean Arabic/English
+  window.initTypingForLang = function(lang) {
+    stopTyping();
+    if (lang === 'ar') {
+      TYPED_WORDS = ['عَالِم إِسْلَامِي', 'مُعَلِّم', 'كَاتِب', 'مُتَخَصِّص تِقْنِيّ', 'مُطَوِّر'];
+    } else {
+      TYPED_WORDS = ["ISLAMIC SCHOLAR", "EDUCATOR", "WRITER", "IT-SKILLED", "DEVELOPER"];
+    }
+    TYPED_INDEX = 0;
+    TYPED_WORD_INDEX = 0;
+    startTyping();
+  };
+
+  // Make footer © YEAR robust (English only)
+  window.updateFooterCopyYear = function() {
+    const el = document.querySelector('[data-i18n="footer.copy"]');
+    if (!el) return;
+    const year = new Date().getFullYear();
+    const lang = (document.documentElement.getAttribute('lang') || 'en');
+    if (lang === 'en') {
+      el.textContent = `© ${year} Ashiq Elahi. All rights reserved. | Email:`;
+    } else if (!el.textContent.includes('©')) {
+      el.textContent = `© ${year} ${el.textContent}`;
+    }
+  };
+
+  // Wrap setLanguage to skip fetching en.json (use clean static HTML)
+  if (typeof window.setLanguage === 'function') {
+    const originalApply = window.setLanguage;
+    window.setLanguage = async function(lang) {
+      const html = document.documentElement;
+      html.setAttribute('lang', lang);
+      html.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+      localStorage.setItem('lang', lang);
+      const emailInput = document.querySelector('input[type="email"]');
+      if (emailInput) emailInput.setAttribute('dir', 'ltr');
+      if (lang !== 'en') {
+        try { await applyTranslationsFrom(lang); } catch (_) {}
+      }
+      initTypingForLang(lang);
+      updateLangToggle(lang);
+      try { updateFooterCopyYear(); } catch (_) {}
+    };
+  }
 })();

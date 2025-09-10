@@ -9,6 +9,8 @@
 
     <link rel="icon" href="assets/Favicon.png" type="image/png" />
     <link rel="stylesheet" href="style.css" />
+    <!-- Small overrides and mobile overflow fix -->
+    <link rel="stylesheet" href="fixes.css" />
     <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet" />
 </head>
@@ -289,10 +291,10 @@
     </footer>
 
     <!-- CV Download Modal -->
-    <div id="cvModal" class="cv-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="cvModalTitle">
+    <div id="cvModal" class="cv-modal">
         <div class="cv-modal-content">
-            <button type="button" class="close-modal" aria-label="Close modal">&times;</button>
-            <h2 id="cvModalTitle" data-i18n="cv.title">Select CV Language</h2>
+            <span class="close-modal">&times;</span>
+            <h2 data-i18n="cv.title">Select CV Language</h2>
             <button id="downloadEnglish" class="btn" data-i18n="cv.downloadEn">Download English CV</button>
             <button id="downloadArabic" class="btn" data-i18n="cv.downloadAr">Download Arabic CV</button>
         </div>
@@ -301,5 +303,6 @@
     <!-- Script -->
     <script src="script.js"></script>
     <script src="theme-simple.js"></script>
+    <script src="fixes.js"></script>
 </body>
 </html>

@@ -41,7 +41,6 @@ body {
   line-height: 1.6;
   scroll-behavior: smooth;
   font-family: 'Segoe UI', sans-serif;
-  overflow-x: hidden;
 }
 
 .arabic-text {
@@ -883,10 +882,6 @@ body.dark .contact-section {
   font-weight: bold;
   color: #333;
   cursor: pointer;
-  background: none;
-  border: none;
-  padding: 0;
-  line-height: 1;
 }
 
 /* Dark mode fix: keep modal text visible on white bg */
@@ -1147,3 +1142,15 @@ html[dir="rtl"] .experience-item ul { margin-left: 0; margin-right: 15px; }
 html[dir="rtl"] .education-item p { margin-left: 0; margin-right: 15px; }
 html[dir="rtl"] .certifications-list,
 html[dir="rtl"] .languages-list { text-align: right; }
+
+/* Dark-mode LTR/RTL border side consistency for cards */
+html[dir="ltr"] body.dark .experience-item,
+html[dir="ltr"] body.dark .education-item {
+  border-right: none !important;
+  border-left: 4px solid var(--primary) !important;
+}
+html[dir="rtl"] body.dark .experience-item,
+html[dir="rtl"] body.dark .education-item {
+  border-left: none !important;
+  border-right: 4px solid var(--primary) !important;
+}
