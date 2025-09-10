@@ -1,7 +1,23 @@
-// Apply saved theme on page load
-const savedTheme = localStorage.getItem('theme');
-if (savedTheme === 'dark') {
-  document.body.classList.add('dark');
+// ===== Theme Toggle =====
+const themeToggleBtn = document.getElementById('theme-toggle');
+
+function applyTheme(isDark) {
+  document.body.classList.toggle('dark', isDark);
+  if (themeToggleBtn) {
+    themeToggleBtn.textContent = isDark ? '☀️' : '🌙';
+    themeToggleBtn.setAttribute('aria-pressed', isDark ? 'true' : 'false');
+    themeToggleBtn.title = isDark ? 'Switch to light mode' : 'Switch to dark mode';
+  }
+}
+
+applyTheme(localStorage.getItem('theme') === 'dark');
+
+if (themeToggleBtn) {
+  themeToggleBtn.addEventListener('click', () => {
+    const isDark = !document.body.classList.contains('dark');
+    applyTheme(isDark);
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  });
 }
 
 // ===== Typing Effect (multilingual) =====
@@ -43,18 +59,6 @@ function initTypingForLang(lang) {
   TYPED_INDEX = 0;
   TYPED_WORD_INDEX = 0;
   startTyping();
-}
-
-// ========= Theme Toggle =========
-const toggleBtn = document.getElementById('theme-toggle');
-if (toggleBtn) {
-  const setIcon = () => (toggleBtn.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙');
-  setIcon();
-  toggleBtn.addEventListener('click', () => {
-    document.body.classList.toggle('dark');
-    localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
-    setIcon();
-  });
 }
 
 // ========= Burger Menu (accessible drawer) =========
@@ -164,15 +168,6 @@ window.addEventListener('scroll', () => {
   const progress = totalHeight > 0 ? (window.scrollY / totalHeight) * 100 : 0;
   scrollProgress.style.width = progress + '%';
 });
-
-// Ensure theme icon text is correct (overrides any legacy text)
-(() => {
-  const themeBtn = document.getElementById('theme-toggle');
-  if (!themeBtn) return;
-  const applyIcon = () => { themeBtn.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙'; };
-  applyIcon();
-  themeBtn.addEventListener('click', applyIcon);
-})();
 
 // ========= Back to Top Button =========
 const backToTop = document.getElementById('backToTop');
@@ -357,32 +352,3 @@ function updateFooterCopyYear() {
 // Run once on load as well
 try { updateFooterCopyYear(); } catch (e) {}
 
-// Final theme icon fix to ensure proper emoji on all browsers
-(() => {
-  const btn = document.getElementById('theme-toggle');
-  if (!btn) return;
-  // Build pill UI with icons and keep it intact
-  const build = () => {
-    btn.classList.add('theme-toggle');
-    if (!btn.querySelector('.toggle-track')) {
-      btn.innerHTML = `
-        <span class="toggle-track">
-          <span class="toggle-label light">LIGHT MODE</span>
-          <span class="toggle-label dark">DARK MODE</span>
-          <span class="toggle-thumb" aria-hidden="true">
-            <span class="icon sun">☀</span>
-            <span class="icon moon">🌙</span>
-          </span>
-        </span>`;
-    }
-    const isDark = document.body.classList.contains('dark');
-    btn.setAttribute('aria-pressed', String(isDark));
-    btn.title = isDark ? 'Switch to light mode' : 'Switch to dark mode';
-  };
-  build();
-
-  // Ensure our UI wins over any legacy text updates
-  btn.addEventListener('click', () => setTimeout(build, 0));
-  const mo = new MutationObserver(() => build());
-  mo.observe(btn, { childList: true, characterData: true, subtree: true });
-})();
