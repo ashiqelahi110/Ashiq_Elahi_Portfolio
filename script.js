@@ -193,32 +193,76 @@ if (backToTop) {
   const englishBtn = document.getElementById('downloadEnglish');
   const arabicBtn = document.getElementById('downloadArabic');
 
+  let prevFocus = null;
+
   if (!(cvModal && downloadBtn && closeBtn && englishBtn && arabicBtn)) {
     return;
   }
 
-  downloadBtn.addEventListener('click', () => {
+  const focusableSelectors = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+  const getFocusable = () => cvModal.querySelectorAll(focusableSelectors);
+
+  function openModal() {
+    prevFocus = document.activeElement;
     cvModal.style.display = 'block';
+    cvModal.setAttribute('aria-hidden', 'false');
+    const focusables = getFocusable();
+    if (focusables.length > 0) {
+      focusables[0].focus();
+    }
+  }
+
+  function closeModal() {
+    cvModal.style.display = 'none';
+    cvModal.setAttribute('aria-hidden', 'true');
+    if (prevFocus && typeof prevFocus.focus === 'function') {
+      prevFocus.focus();
+    }
+  }
+
+  downloadBtn.addEventListener('click', () => {
+    openModal();
   });
 
   closeBtn.addEventListener('click', () => {
-    cvModal.style.display = 'none';
+    closeModal();
   });
 
   window.addEventListener('click', (e) => {
     if (e.target === cvModal) {
-      cvModal.style.display = 'none';
+      closeModal();
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (cvModal.style.display === 'block') {
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        closeModal();
+      } else if (e.key === 'Tab') {
+        const focusables = getFocusable();
+        if (focusables.length === 0) return;
+        const firstEl = focusables[0];
+        const lastEl = focusables[focusables.length - 1];
+        if (e.shiftKey && document.activeElement === firstEl) {
+          e.preventDefault();
+          lastEl.focus();
+        } else if (!e.shiftKey && document.activeElement === lastEl) {
+          e.preventDefault();
+          firstEl.focus();
+        }
+      }
     }
   });
 
   englishBtn.addEventListener('click', () => {
     window.location.href = 'assets/Ashiq_Elahi_CV_IT_and_Digital_Services_Professional.pdf';
-    cvModal.style.display = 'none';
+    closeModal();
   });
 
   arabicBtn.addEventListener('click', () => {
     window.location.href = 'assets/Arabic_Ashiq_Elahi_CV_IT_and_Digital_Services_Professional.pdf';
-    cvModal.style.display = 'none';
+    closeModal();
   });
 })();
 
