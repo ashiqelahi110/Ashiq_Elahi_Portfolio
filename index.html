@@ -291,10 +291,10 @@
     </footer>
 
     <!-- CV Download Modal -->
-    <div id="cvModal" class="cv-modal">
-        <div class="cv-modal-content">
-            <span class="close-modal">&times;</span>
-            <h2 data-i18n="cv.title">Select CV Language</h2>
+    <div id="cvModal" class="cv-modal" aria-hidden="true">
+        <div class="cv-modal-content" role="dialog" aria-modal="true" aria-labelledby="cvModalTitle" tabindex="-1">
+            <span class="close-modal" aria-label="Close dialog" role="button">&times;</span>
+            <h2 id="cvModalTitle" data-i18n="cv.title">Select CV Language</h2>
             <button id="downloadEnglish" class="btn" data-i18n="cv.downloadEn">Download English CV</button>
             <button id="downloadArabic" class="btn" data-i18n="cv.downloadAr">Download Arabic CV</button>
         </div>

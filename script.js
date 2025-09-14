@@ -193,32 +193,80 @@ if (backToTop) {
   const englishBtn = document.getElementById('downloadEnglish');
   const arabicBtn = document.getElementById('downloadArabic');
 
-  if (!(cvModal && downloadBtn && closeBtn && englishBtn && arabicBtn)) {
-    return;
+  if (!(cvModal && downloadBtn && closeBtn && englishBtn && arabicBtn)) return;
+
+  const dialog = cvModal.querySelector('.cv-modal-content');
+  let prevFocus = null;
+
+  function lockBodyScroll() {
+    try {
+      const sbw = window.innerWidth - document.documentElement.clientWidth;
+      const needsComp = sbw >= 15; // only desktop scrollbars
+      document.body.classList.add('modal-open');
+      document.body.style.paddingRight = needsComp ? sbw + 'px' : '';
+    } catch (_) {}
   }
 
-  downloadBtn.addEventListener('click', () => {
-    cvModal.style.display = 'block';
-  });
+  function unlockBodyScroll() {
+    document.body.classList.remove('modal-open');
+    document.body.style.paddingRight = '';
+  }
 
-  closeBtn.addEventListener('click', () => {
-    cvModal.style.display = 'none';
-  });
+  function getFocusable(container) {
+    return container.querySelectorAll('a, button, input, textarea, select, [tabindex]:not([tabindex="-1"])');
+  }
 
-  window.addEventListener('click', (e) => {
-    if (e.target === cvModal) {
-      cvModal.style.display = 'none';
+  function openModal() {
+    prevFocus = document.activeElement;
+    cvModal.setAttribute('aria-hidden', 'false');
+    lockBodyScroll();
+    if (dialog) {
+      dialog.setAttribute('tabindex', '-1');
+      dialog.focus();
     }
-  });
+    document.addEventListener('keydown', handleKeydown);
+  }
+
+  function closeModal() {
+    cvModal.setAttribute('aria-hidden', 'true');
+    unlockBodyScroll();
+    document.removeEventListener('keydown', handleKeydown);
+    if (prevFocus && typeof prevFocus.focus === 'function') prevFocus.focus();
+  }
+
+  function handleKeydown(e) {
+    if (e.key === 'Escape') {
+      e.preventDefault();
+      closeModal();
+      return;
+    }
+    if (e.key === 'Tab') {
+      const focusables = getFocusable(dialog);
+      if (!focusables.length) return;
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
+  }
+
+  downloadBtn.addEventListener('click', openModal);
+  closeBtn.addEventListener('click', closeModal);
+  cvModal.addEventListener('click', (e) => { if (e.target === cvModal) closeModal(); });
 
   englishBtn.addEventListener('click', () => {
     window.location.href = 'assets/Ashiq_Elahi_CV_IT_and_Digital_Services_Professional.pdf';
-    cvModal.style.display = 'none';
+    closeModal();
   });
 
   arabicBtn.addEventListener('click', () => {
     window.location.href = 'assets/Arabic_Ashiq_Elahi_CV_IT_and_Digital_Services_Professional.pdf';
-    cvModal.style.display = 'none';
+    closeModal();
   });
 })();
 
