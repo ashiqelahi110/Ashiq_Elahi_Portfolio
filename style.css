@@ -1168,8 +1168,7 @@ html[dir="rtl"] body.dark .education-item {
 /* allow toggling visibility via aria; use grid for centering */
 .cv-modal[aria-hidden="false"] {
   display: grid;
-  align-items: start; /* start vertically, not strict center */
-  justify-items: center; /* horizontally centered */
+  place-items: center; /* center vertically & horizontally */
 }
 
 .cv-modal-content {
@@ -1177,8 +1176,7 @@ html[dir="rtl"] body.dark .education-item {
   width: min(420px, calc(100vw - 32px)); /* 16px safe gutter on each side */
   max-width: 100%;
   max-height: 90vh; /* avoid vertical overflow */
-  margin: 0; /* grid centers horizontally */
-  margin-top: clamp(48px, 12vh, 120px); /* comfortable top space */
+  margin: auto; /* rely on grid centering */
   padding: clamp(16px, 4vw, 24px);
   border-radius: 12px;
   box-sizing: border-box;
