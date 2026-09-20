@@ -35,6 +35,11 @@ body.dark {
   box-sizing: border-box;
 }
 
+html,
+body {
+  overflow-x: hidden;
+}
+
 body {
   background: var(--bg);
   color: var(--text);
@@ -862,6 +867,7 @@ body.dark .contact-section {
   text-align: center;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   color: #111827;
+  position: relative;
 }
 
 .cv-modal-content h2 {
@@ -872,6 +878,7 @@ body.dark .contact-section {
   display: block;
   width: 100%;
   margin: 10px 0;
+  box-sizing: border-box;
 }
 
 .close-modal {
