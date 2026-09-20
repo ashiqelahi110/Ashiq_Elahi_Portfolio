@@ -27,3 +27,276 @@ img, video, canvas, svg {
 @media (max-width: 360px) {
   .header-flex { flex-wrap: wrap; gap: 8px; }
 }
+
+
+/* ===== Comprehensive responsive layout fix ===== */
+html {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+.container {
+  width: min(1200px, calc(100% - 32px));
+  max-width: 100%;
+}
+
+section,
+header,
+footer,
+main {
+  max-width: 100%;
+}
+
+p,
+li,
+h1,
+h2,
+h3,
+h4,
+a {
+  overflow-wrap: anywhere;
+}
+
+.hero-content,
+.hero-text,
+.hero-image,
+.card-grid,
+.card,
+.experience-item,
+.education-item,
+.contact-form {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.hero-text {
+  width: 100%;
+}
+
+.hero-image img {
+  max-width: min(100%, 320px);
+}
+
+.header-flex {
+  gap: 12px;
+}
+
+.logo {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.burger,
+#theme-toggle,
+.lang-toggle {
+  flex: 0 0 auto;
+}
+
+.site-footer a {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* Keep horizontal entrance animations inside narrow viewports. */
+@media (max-width: 768px) {
+  .container {
+    width: min(100% - 24px, 1200px);
+  }
+
+  .site-header {
+    padding: 10px 0;
+  }
+
+  .header-flex {
+    justify-content: flex-start;
+    gap: 8px;
+  }
+
+  .logo {
+    font-size: clamp(17px, 5.4vw, 22px);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .burger {
+    order: 2;
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    margin-inline-start: auto;
+  }
+
+  #theme-toggle {
+    order: 3;
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .lang-toggle {
+    order: 4;
+    width: 78px;
+    height: 36px;
+    gap: 2px;
+  }
+
+  .nav {
+    order: 5;
+    box-sizing: border-box;
+    max-width: 100vw;
+  }
+
+  .hero {
+    padding: 52px 0;
+  }
+
+  .hero-content {
+    width: 100%;
+    gap: 28px;
+  }
+
+  .hero-text {
+    min-width: 0;
+  }
+
+  .hero-image {
+    width: 100%;
+  }
+
+  .hero-image img {
+    width: min(220px, 72vw);
+    height: min(220px, 72vw);
+  }
+
+  .hero .btn#Explore,
+  .hero .btn#downloadCV {
+    width: min(100%, 220px);
+    min-width: 0;
+    margin-inline: 4px;
+  }
+
+  .slide-in-left,
+  .slide-in-right {
+    transform: translateY(24px);
+  }
+
+  .slide-in-left.visible,
+  .slide-in-right.visible {
+    transform: translateY(0);
+  }
+
+  .experience-item,
+  .education-item {
+    padding: 14px;
+  }
+
+  .experience-item ul {
+    list-style-position: outside;
+    padding-inline-start: 20px;
+    margin-inline: 0;
+  }
+
+  html[dir="rtl"] .experience-item ul {
+    padding-inline-start: 20px;
+    margin-inline: 0;
+  }
+
+  .contact-form {
+    padding: 20px;
+  }
+
+  .section-title {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 380px) {
+  .container {
+    width: min(100% - 20px, 1200px);
+  }
+
+  .header-flex {
+    gap: 5px;
+  }
+
+  .logo {
+    font-size: 17px;
+  }
+
+  .burger,
+  #theme-toggle {
+    width: 36px;
+    height: 36px;
+  }
+
+  .lang-toggle {
+    width: 68px;
+    height: 34px;
+    padding: 3px;
+  }
+
+  .lang-toggle .label {
+    font-size: 10px;
+    letter-spacing: 0;
+  }
+
+  .lang-toggle .thumb {
+    top: 3px;
+    left: 3px;
+    width: calc(50% - 6px);
+    height: calc(100% - 6px);
+  }
+
+  .lang-toggle.is-en .thumb {
+    left: 3px;
+  }
+
+  .lang-toggle.is-ar .thumb {
+    left: calc(50% + 3px);
+  }
+
+  .hero-text h2 {
+    font-size: 27px;
+  }
+
+  .section-title {
+    font-size: 25px;
+  }
+
+  .contact-form {
+    padding: 16px;
+  }
+
+  #backToTop {
+    right: 12px;
+    bottom: 12px;
+  }
+
+  html[dir="rtl"] #backToTop {
+    right: auto;
+    left: 12px;
+  }
+}
+
+@supports not (overflow: clip) {
+  html,
+  body {
+    overflow-x: hidden;
+  }
+}
