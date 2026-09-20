@@ -111,7 +111,7 @@ a {
 /* Keep horizontal entrance animations inside narrow viewports. */
 @media (max-width: 768px) {
   .container {
-    width: min(100% - 24px, 1200px);
+    width: min(1200px, calc(100% - 24px));
   }
 
   .site-header {
@@ -228,7 +228,7 @@ a {
 
 @media (max-width: 380px) {
   .container {
-    width: min(100% - 20px, 1200px);
+    width: min(1200px, calc(100% - 20px));
   }
 
   .header-flex {
